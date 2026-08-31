@@ -1,4 +1,43 @@
-// ===== Data for suggestions =====
+// ===== Global site search data =====
+const SITE_SEARCH = [
+  // Projects
+  { type: 'مشروع', title: 'فيلا سكنية حديثة', tags: 'فيلا سكنية منزل residential', url: 'project.html?id=villa' },
+  { type: 'مشروع', title: 'مجمع سكني فاخر', tags: 'مجمع سكني شقق multi-family', url: 'project.html?id=complex' },
+  { type: 'مشروع', title: 'تصميم داخلي - شقة', tags: 'تصميم داخلي شقة interior', url: 'project.html?id=apartment' },
+  { type: 'مشروع', title: 'مبنى إداري حديث', tags: 'مبنى إداري مكتب commercial', url: 'project.html?id=office' },
+  { type: 'مشروع', title: 'مركز ثقافي ومتحف', tags: 'مركز ثقافي متحف public', url: 'project.html?id=museum' },
+  { type: 'مشروع', title: 'منتجع سياحي', tags: 'منتجع سياحي landscape hospitality', url: 'project.html?id=resort' },
+  { type: 'مشروع', title: 'بيت صيفي على البحر', tags: 'بيت صيفي بحر residential', url: 'project.html?id=beach' },
+  { type: 'مشروع', title: 'مركز تسوق حديث', tags: 'مول تجاري retail commercial', url: 'project.html?id=mall' },
+  { type: 'مشروع', title: 'تصميم مكتب حديث', tags: 'مكتب تصميم workspace interior', url: 'project.html?id=workspace' },
+  // Architects
+  { type: 'معماري', title: 'أنطوني غاودي', tags: 'غاودي gaudi ساغرادا برشلونة', url: 'architect.html?id=gaudi' },
+  { type: 'معماري', title: 'لو كوربوزييه', tags: 'كوربوزييه corbusier حداثة', url: 'architect.html?id=corbusier' },
+  { type: 'معماري', title: 'فرانك لويد رايت', tags: 'رايت wright شلال fallingwater', url: 'architect.html?id=wright' },
+  { type: 'معماري', title: 'زها حديد', tags: 'زها حديد hadid', url: 'architect.html?id=hadid' },
+  { type: 'معماري', title: 'حسن فتحي', tags: 'حسن فتحي fathy قرنة طوب', url: 'architect.html?id=fathy' },
+  { type: 'معماري', title: 'جيل معاصر · العالم العربي', tags: 'طلال العيسوي معاصر عربي', url: 'architect.html?id=contemporary' },
+  // Services
+  { type: 'خدمة', title: 'تصميم معماري', tags: 'تصميم معماري مخططات architecture', url: 'service.html?id=architecture' },
+  { type: 'خدمة', title: 'تصميم داخلي', tags: 'تصميم داخلي interior أثاث', url: 'service.html?id=interior' },
+  { type: 'خدمة', title: 'تصور ثلاثي الأبعاد', tags: 'رندر تصور 3d visualization', url: 'service.html?id=visualization' },
+  // Pages
+  { type: 'صفحة', title: 'تاريخ العمارة', tags: 'عمارة تاريخ architecture', url: 'architecture.html' },
+  { type: 'صفحة', title: 'المهندس أحمد رضا', tags: 'أحمد رضا مؤسس founder', url: 'founder.html' },
+  { type: 'صفحة', title: 'تواصل معنا', tags: 'تواصل واتساب contact', url: 'contact.html' },
+
+  // Famous works
+  { type: 'عمل', title: 'ساغرادا فاميليا', tags: 'غاودي gaudi sagrada برشلونة', url: 'work.html?id=gaudi-sagrada' },
+  { type: 'عمل', title: 'حديقة غويل', tags: 'غاودي park guell', url: 'work.html?id=gaudi-guell' },
+  { type: 'عمل', title: 'فيلا سافوي', tags: 'كوربوزييه savoye', url: 'work.html?id=corbusier-savoye' },
+  { type: 'عمل', title: 'منزل الشلال', tags: 'رايت fallingwater شلال', url: 'work.html?id=wright-fallingwater' },
+  { type: 'عمل', title: 'متحف غوغنهايم', tags: 'رايت guggenheim', url: 'work.html?id=wright-guggenheim' },
+  { type: 'عمل', title: 'مركز حيدر علييف', tags: 'زها حديد باكو', url: 'work.html?id=hadid-aliyev' },
+  { type: 'عمل', title: 'قرية القرنة الجديدة', tags: 'حسن فتحي gourna', url: 'work.html?id=fathy-gourna' },
+  { type: 'صفحة', title: 'كل المشاريع', tags: 'مشاريع portfolio', url: 'index.html' }
+];
+
+// For suggestions grid on index
 const allProjects = [
   { id: "villa", title: "فيلا سكنية حديثة", category: "residential", img: "https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=400&h=400&fit=crop" },
   { id: "complex", title: "مجمع سكني فاخر", category: "residential", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=400&fit=crop" },
@@ -11,9 +50,99 @@ const allProjects = [
   { id: "workspace", title: "تصميم مكتب حديث", category: "interior", img: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=400&h=400&fit=crop" }
 ];
 
-// ===== Elements =====
-const searchInput = document.getElementById('searchInput');
-const searchBtn = document.getElementById('searchBtn');
+// ===== Global search UI =====
+function initGlobalSearch() {
+  const searchInput = document.getElementById('searchInput');
+  const searchBtn = document.getElementById('searchBtn');
+  if (!searchInput) return;
+
+  // Create dropdown if missing
+  let dropdown = document.getElementById('searchDropdown');
+  if (!dropdown) {
+    dropdown = document.createElement('div');
+    dropdown.id = 'searchDropdown';
+    dropdown.className = 'search-dropdown';
+    dropdown.setAttribute('role', 'listbox');
+    const box = searchInput.closest('.search-box');
+    if (box) {
+      box.style.position = 'relative';
+      box.appendChild(dropdown);
+    }
+  }
+
+  function searchSite(q) {
+    q = (q || '').trim().toLowerCase();
+    if (!q) return [];
+    return SITE_SEARCH.filter(item => {
+      const hay = (item.title + ' ' + item.tags + ' ' + item.type).toLowerCase();
+      return hay.includes(q) || q.split(/\s+/).every(w => hay.includes(w));
+    }).slice(0, 8);
+  }
+
+  function renderDropdown(results, q) {
+    if (!q || results.length === 0) {
+      dropdown.classList.remove('open');
+      dropdown.innerHTML = q
+        ? '<div class="search-empty">مفيش نتائج</div>'
+        : '';
+      if (q) dropdown.classList.add('open');
+      return;
+    }
+    dropdown.innerHTML = results.map(r => `
+      <a href="${r.url}" class="search-item" role="option">
+        <span class="search-item-type">${r.type}</span>
+        <span class="search-item-title">${r.title}</span>
+      </a>
+    `).join('');
+    dropdown.classList.add('open');
+  }
+
+  function onInput() {
+    const q = searchInput.value;
+    renderDropdown(searchSite(q), q.trim());
+    // Also filter projects on index if present
+    if (typeof applyFilters === 'function' && document.querySelector('.project-card')) {
+      currentSearch = q.trim().toLowerCase();
+      applyFilters();
+    }
+  }
+
+  function goFirstOrClose() {
+    const first = dropdown.querySelector('.search-item');
+    if (first) {
+      window.location.href = first.getAttribute('href');
+    } else {
+      dropdown.classList.remove('open');
+    }
+  }
+
+  searchInput.addEventListener('input', onInput);
+  searchInput.addEventListener('focus', onInput);
+  searchInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      goFirstOrClose();
+    }
+    if (e.key === 'Escape') {
+      dropdown.classList.remove('open');
+      searchInput.blur();
+    }
+  });
+  if (searchBtn) {
+    searchBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      goFirstOrClose();
+    });
+  }
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.search-box')) {
+      dropdown.classList.remove('open');
+    }
+  });
+}
+
+// ===== Index-only: Filter + Search Logic =====
 const filterBtns = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
 const resultsInfo = document.getElementById('resultsInfo');
@@ -23,18 +152,18 @@ const suggestionsGrid = document.getElementById('suggestionsGrid');
 let currentFilter = 'all';
 let currentSearch = '';
 
-// ===== Filter + Search Logic =====
 function applyFilters() {
+  if (!projectCards.length) return;
   let visibleCount = 0;
 
   projectCards.forEach(card => {
     const category = card.dataset.category;
     const tags = (card.dataset.tags || '').toLowerCase();
-    const title = card.querySelector('h3').textContent.toLowerCase();
+    const title = card.querySelector('h3') ? card.querySelector('h3').textContent.toLowerCase() : '';
 
     const matchCategory = currentFilter === 'all' || category === currentFilter;
-    const matchSearch = currentSearch === '' || 
-                        title.includes(currentSearch) || 
+    const matchSearch = currentSearch === '' ||
+                        title.includes(currentSearch) ||
                         tags.includes(currentSearch);
 
     if (matchCategory && matchSearch) {
@@ -45,31 +174,28 @@ function applyFilters() {
     }
   });
 
-  // Results info
   if (currentSearch || currentFilter !== 'all') {
     if (resultsInfo) resultsInfo.textContent = `تم العثور على ${visibleCount} مشروع`;
   } else if (resultsInfo) {
     resultsInfo.textContent = '';
   }
 
-  // No results
   if (noResults) noResults.style.display = visibleCount === 0 ? 'block' : 'none';
-
-  // Update suggestions based on current filter
   updateSuggestions();
 }
 
-// ===== Search =====
-function doSearch() {
-  currentSearch = searchInput.value.trim().toLowerCase();
+function resetAll() {
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput) searchInput.value = '';
+  currentSearch = '';
+  currentFilter = 'all';
+  filterBtns.forEach(b => b.classList.remove('active'));
+  const allBtn = document.querySelector('[data-filter="all"]');
+  if (allBtn) allBtn.classList.add('active');
   applyFilters();
+  const dropdown = document.getElementById('searchDropdown');
+  if (dropdown) dropdown.classList.remove('open');
 }
-
-if (searchInput) searchInput.addEventListener('input', doSearch);
-if (searchInput) searchInput.addEventListener('keypress', (e) => {
-  if (e.key === 'Enter') doSearch();
-});
-if (searchBtn) searchBtn.addEventListener('click', doSearch);
 
 // ===== Filter buttons =====
 filterBtns.forEach(btn => {
@@ -81,17 +207,6 @@ filterBtns.forEach(btn => {
   });
 });
 
-// ===== Reset =====
-function resetAll() {
-  searchInput.value = '';
-  currentSearch = '';
-  currentFilter = 'all';
-  filterBtns.forEach(b => b.classList.remove('active'));
-  const allBtn = document.querySelector('[data-filter="all"]');
-  if (allBtn) allBtn.classList.add('active');
-  applyFilters();
-}
-
 // ===== Suggestions (like Pinterest / Behance) =====
 function updateSuggestions() {
   if (!suggestionsGrid) return;
@@ -99,17 +214,14 @@ function updateSuggestions() {
   let suggested = [];
 
   if (currentFilter !== 'all') {
-    // Show projects from same category
     suggested = allProjects.filter(p => p.category === currentFilter);
   } else if (currentSearch) {
-    // Show projects that match search somehow
-    suggested = allProjects.filter(p => 
-      p.title.toLowerCase().includes(currentSearch) || 
+    suggested = allProjects.filter(p =>
+      p.title.toLowerCase().includes(currentSearch) ||
       p.category.includes(currentSearch)
     );
   }
 
-  // If still empty or too few → random suggestions
   if (suggested.length < 4) {
     const shuffled = [...allProjects].sort(() => 0.5 - Math.random());
     suggested = shuffled.slice(0, 4);
@@ -138,9 +250,9 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // ===== Init =====
 document.addEventListener('DOMContentLoaded', () => {
+  initGlobalSearch();
   updateSuggestions();
 
-  // Fade-in animation
   projectCards.forEach((card, index) => {
     card.style.opacity = '0';
     card.style.transform = 'translateY(20px)';

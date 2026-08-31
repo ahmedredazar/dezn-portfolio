@@ -14,6 +14,15 @@
         <div class="logo-box">DE<br>ZN</div>
         <span class="logo-text">DEZN</span>
       </a>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="ابحث في الموقع..." autocomplete="off">
+        <button id="searchBtn" aria-label="بحث" type="button">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </button>
+      </div>
       <nav class="nav">
         <a href="index.html">المشاريع</a>
         <a href="architecture.html" class="active">العمارة</a>
@@ -32,13 +41,26 @@
       </div>
       <h1 id="title">—</h1>
       <p class="meta" id="meta"></p>
+      <p style="margin-top:18px">
+        <a href="#works" class="btn-works" id="worksBtn">أعماله التاريخية ←</a>
+      </p>
     </div>
   </section>
 
   <div class="project-layout article-page">
     <div class="project-body" id="body"></div>
+  </div>
 
-    <p style="text-align:center;margin-top:40px">
+  <section class="works-section" id="works">
+    <div class="container">
+      <h2 class="section-title" id="worksHeading">أعمال تاريخية</h2>
+      <p class="works-intro" id="worksIntro"></p>
+      <div class="works-grid" id="worksGrid"></div>
+    </div>
+  </section>
+
+  <div class="project-layout article-page" style="padding-top:10px;padding-bottom:50px">
+    <p style="text-align:center">
       <a href="architecture.html" class="back-link">← العودة لتاريخ العمارة</a>
       &nbsp;·&nbsp;
       <a href="index.html" class="back-link">المشاريع</a>
@@ -60,14 +82,39 @@
       body: `
         <p>أنطوني غاودي إي كورنيت (Antoni Gaudí) معماري كاتالوني يُعد من أبرز وجوه العمارة الحديثة وأحد رواد المدرسة العضوية.</p>
         <p>اشتهر بأشكال مستوحاة من الطبيعة: منحنيات، أعمدة تشبه الأشجار، وأسقف كالكهوف. رفض الزوايا الحادة واعتمد على الهندسة المفرطة في التعقيد مع إحساس بالنحت.</p>
-        <p><strong>أبرز أعماله:</strong></p>
-        <ul>
-          <li>كاتدرائية ساغرادا فاميليا في برشلونة (ما زالت قيد الإنشاء)</li>
-          <li>حديقة غويل (Park Güell)</li>
-          <li>كاسا باتيو وكاسا ميلا</li>
-        </ul>
         <p>دمج بين الحرفة التقليدية والتقنية المتقدمة في عصره، وأثر على أجيال من المعماريين الذين يبحثون عن علاقة أقوى بين المبنى والطبيعة.</p>
-      `
+      `,
+      worksIntro: 'أبرز المباني التي شكّلت إرث غاودي في برشلونة وحولها.',
+      works: [
+        {
+          id: 'gaudi-sagrada',
+          title: 'ساغرادا فاميليا',
+          year: '1882 – مستمر',
+          img: 'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=800&h=600&fit=crop',
+          desc: 'كاتدرائية رمز برشلونة. أبراج شاهقة وتفاصيل نحتية مستوحاة من الطبيعة والكتاب المقدس، وما زالت قيد الإنشاء منذ أكثر من قرن.'
+        },
+        {
+          id: 'gaudi-guell',
+          title: 'حديقة غويل',
+          year: '1900 – 1914',
+          img: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=800&h=600&fit=crop',
+          desc: 'حديقة عامة بأعمدة مائلة وفسيفساء ملونة وممرات عضوية. صُممت أصلاً كمجمع سكني ثم تحولت لمعلم سياحي عالمي.'
+        },
+        {
+          id: 'gaudi-batllo',
+          title: 'كاسا باتيو',
+          year: '1904 – 1906',
+          img: 'https://images.unsplash.com/photo-1564221710304-0b37c8b9d729?w=800&h=600&fit=crop',
+          desc: 'واجهة أسطورية بألوان وعظام وتنانين. إعادة تصميم كاملة لمنزل قائم بأسلوب غاودي المميز.'
+        },
+        {
+          id: 'gaudi-mila',
+          title: 'كاسا ميلا (لا بيدريرا)',
+          year: '1906 – 1912',
+          img: 'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&h=600&fit=crop',
+          desc: 'مبنى سكني بواجهة متموجة وسقف منحوت وشرفات حديدية. يُعتبر من أهم أعمال العمارة الحديثة في أوروبا.'
+        }
+      ]
     },
     corbusier: {
       title: 'لو كوربوزييه',
@@ -75,15 +122,39 @@
       body: `
         <p>شارل-إدوار جانيريه-غري، المعروف بـ لو كوربوزييه، من أهم رواد العمارة الحديثة في القرن العشرين.</p>
         <p>روّج لفكرة «البيت آلة للسكن» و«الشكل يتبع الوظيفة»، واستخدم الخرسانة المكشوفة والزجاج والصلب لخلق مساحات مفتوحة ومرنة.</p>
-        <p><strong>أبرز مساهماته:</strong></p>
-        <ul>
-          <li>الوحدات السكنية (Unité d'Habitation) في مارسيليا</li>
-          <li>فيلا سافوي (Villa Savoye)</li>
-          <li>نظام الموديولور للتناسب البشري</li>
-          <li>مخططات المدن الحديثة والتخطيط الحضري</li>
-        </ul>
         <p>أثره يمتد إلى الإسكان الجماعي والمباني الإدارية حول العالم، وما زالت أفكاره تُناقش في سياق الاستدامة والكثافة الحضرية.</p>
-      `
+      `,
+      worksIntro: 'أعمال أساسية حددت ملامح الحداثة المعمارية في القرن العشرين.',
+      works: [
+        {
+          id: 'corbusier-savoye',
+          title: 'فيلا سافوي',
+          year: '1928 – 1931',
+          img: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop',
+          desc: 'أيقونة الحداثة: بيت أبيض مرفوع على أعمدة (pilotis)، نوافذ أفقية، وسطح حديقة — تطبيق عملي لمبادئه الخمسة.'
+        },
+        {
+          id: 'corbusier-unite',
+          title: 'وحدة السكن · مارسيليا',
+          year: '1947 – 1952',
+          img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop',
+          desc: 'مجمع سكني ضخم كـ«مدينة رأسية»: شقق، شارع داخلي، ومرافق على السطح. نموذج للإسكان الجماعي بعد الحرب.'
+        },
+        {
+          id: 'corbusier-ronchamp',
+          title: 'كنيسة نوتردام دو أو',
+          year: '1950 – 1955',
+          img: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=600&fit=crop',
+          desc: 'كنيسة في رونشان بكتلة نحتية وإضاءة درامية من فتحات صغيرة. ابتعد فيها عن الخطوط الصارمة نحو التعبير الروحي.'
+        },
+        {
+          id: 'corbusier-chandigarh',
+          title: 'مجمع شانديغار',
+          year: '1951 – 1965',
+          img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop',
+          desc: 'عاصمة جديدة في الهند: مبنى البرلمان والمحكمة والسكرتارية. تخطيط حضري ومباني عامة بأسلوبه الخرساني.'
+        }
+      ]
     },
     wright: {
       title: 'فرانك لويد رايت',
@@ -91,15 +162,39 @@
       body: `
         <p>فرانك لويد رايت من أعظم المعماريين الأمريكيين، وصاحب مفهوم «العمارة العضوية» التي تندمج مع الموقع والطبيعة.</p>
         <p>رفض التقليد الأوروبي الصريح وسعى لعمارة أمريكية أصيلة: خطوط أفقية، نوافذ أفقية، وخامات محلية، مع ربط الداخل بالخارج.</p>
-        <p><strong>أبرز أعماله:</strong></p>
-        <ul>
-          <li>منزل الشلال (Fallingwater) في بنسلفانيا</li>
-          <li>متحف غوغنهايم في نيويورك</li>
-          <li>منازل البراري (Prairie Houses)</li>
-          <li>طالييسين (Taliesin) كمدرسة ومقر عمل</li>
-        </ul>
         <p>فلسفته ما زالت مصدر إلهام للمصممين الذين يربطون المبنى بالمناظر الطبيعية والمناخ المحلي.</p>
-      `
+      `,
+      worksIntro: 'منازل ومتاحف جسّدت فكرة الاندماج مع الطبيعة والموقع.',
+      works: [
+        {
+          id: 'wright-fallingwater',
+          title: 'منزل الشلال (Fallingwater)',
+          year: '1935 – 1939',
+          img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop',
+          desc: 'منزل مبني فوق شلال في بنسلفانيا. الشرفات الخرسانية تبدو كأنها تطفو فوق الماء — رمز العمارة العضوية.'
+        },
+        {
+          id: 'wright-guggenheim',
+          title: 'متحف غوغنهايم',
+          year: '1943 – 1959',
+          img: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop',
+          desc: 'متحف حلزوني في نيويورك. الزائر يصعد منحدراً مستمراً حول فراغ مركزي — تجربة عرض غير تقليدية.'
+        },
+        {
+          id: 'wright-prairie',
+          title: 'منازل البراري',
+          year: 'حوالي 1900 – 1910',
+          img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop',
+          desc: 'سلسلة منازل أفقية منخفضة تناسب أراضي الغرب الأوسط الأمريكي، بأسقف ممتدة ونوافذ شريطية.'
+        },
+        {
+          id: 'wright-taliesin',
+          title: 'طالييسين',
+          year: '1911 وما بعد',
+          img: 'https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=800&h=600&fit=crop',
+          desc: 'منزله ومدرسته في ويسكونسن (ثم أريزونا). مكان عمل وتعليم وعيش متكامل مع التلال.'
+        }
+      ]
     },
     hadid: {
       title: 'زها حديد',
@@ -107,15 +202,39 @@
       body: `
         <p>زها محمد حديد معمارية عراقية-بريطانية، أول امرأة تحصل على جائزة بريتزكر (2004)، ومن أبرز وجوه العمارة المعاصرة عالمياً.</p>
         <p>اشتهرت بالأشكال الانسيابية والديناميكية المستوحاة من السوائل والحركة، وباستخدام البرمجيات المتقدمة لتصميم هياكل معقدة.</p>
-        <p><strong>أبرز أعمالها:</strong></p>
-        <ul>
-          <li>مركز حيدر علييف في باكو</li>
-          <li>مركز لندن للألعاب المائية (Olympic Aquatics Centre)</li>
-          <li>متحف MAXXI في روما</li>
-          <li>مبنى غالاكسي سوهو في بكين</li>
-        </ul>
         <p>كسرت الصورة التقليدية للمبنى كصندوق، وفتحت الباب لجيل جديد من التصاميم الجريئة والتقنية العالية.</p>
-      `
+      `,
+      worksIntro: 'مشاريع جريئة جعلت اسمها مرادفاً للعمارة الانسيابية المعاصرة.',
+      works: [
+        {
+          id: 'hadid-aliyev',
+          title: 'مركز حيدر علييف',
+          year: '2007 – 2012',
+          img: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=600&fit=crop',
+          desc: 'مركز ثقافي في باكو بسطح واحد مستمر ينساب من الأرض إلى السقف بلا زوايا حادة — من أشهر صور العمارة المعاصرة.'
+        },
+        {
+          id: 'hadid-aquatics',
+          title: 'مركز الألعاب المائية · لندن',
+          year: '2008 – 2011',
+          img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop',
+          desc: 'مسبح أولمبي بسقف متموج يشبه الموجة. صُمم لدورة لندن 2012 وما زال رمزاً للمنشآت الرياضية الحديثة.'
+        },
+        {
+          id: 'hadid-maxxi',
+          title: 'متحف MAXXI',
+          year: '1998 – 2009',
+          img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop',
+          desc: 'متحف الفن المعاصر في روما: مسارات متداخلة وفراغات مرنة بدلاً من الغرف التقليدية.'
+        },
+        {
+          id: 'hadid-soho',
+          title: 'غالاكسي سوهو · بكين',
+          year: '2009 – 2012',
+          img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop',
+          desc: 'مجمع مكاتب وتجزئة بكتل منحنية متصلة كأنها تدفق حجري في قلب المدينة.'
+        }
+      ]
     },
     fathy: {
       title: 'حسن فتحي',
@@ -123,15 +242,39 @@
       body: `
         <p>حسن فتحي معماري مصري رائد في «عمارة الفقراء» والاستدامة الاجتماعية والبيئية قبل أن تصبح هذه المصطلحات شائعة عالمياً.</p>
         <p>دافع عن استخدام الخامات المحلية (الطوب اللبن) والتقنيات التقليدية الملائمة للمناخ، بدلاً من استيراد حلول غربية باهظة وغير مناسبة.</p>
-        <p><strong>أبرز أعماله وأفكاره:</strong></p>
-        <ul>
-          <li>قرية القرنة الجديدة قرب الأقصر</li>
-          <li>كتاب «عمارة الفقراء» (Architecture for the Poor)</li>
-          <li>الاهتمام بالتهوية الطبيعية والخصوصية والفناء</li>
-          <li>تمكين الحرفيين المحليين في عملية البناء</li>
-        </ul>
         <p>إرثه حيّ في النقاش المعاصر حول العمارة المستدامة والهوية الثقافية في العالم العربي وأفريقيا.</p>
-      `
+      `,
+      worksIntro: 'مشاريع وأفكار ربطت العمارة بالناس والخامة المحلية والمناخ.',
+      works: [
+        {
+          id: 'fathy-gourna',
+          title: 'قرية القرنة الجديدة',
+          year: '1945 – 1948',
+          img: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop',
+          desc: 'قرية نموذجية قرب الأقصر بالطوب اللبن والقباب والأفنية. محاولة لنقل سكان من منطقة أثرية مع الحفاظ على تقاليد البناء.'
+        },
+        {
+          id: 'fathy-book',
+          title: 'عمارة الفقراء (الكتاب)',
+          year: '1969 / 1973',
+          img: 'https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=800&h=600&fit=crop',
+          desc: 'كتابه الأشهر الذي وثّق تجربته ودعا لعمارة مناسبة اقتصادياً ومناخياً واجتماعياً — أثر عالمياً في عمارة التنمية.'
+        },
+        {
+          id: 'fathy-dar',
+          title: 'دار الإسلام · نيو مكسيكو',
+          year: '1981',
+          img: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop',
+          desc: 'مجمع ثقافي وتعليمي في الولايات المتحدة بطرازه الطيني والقبابي، ليؤكد أن أفكاره تصلح خارج مصر أيضاً.'
+        },
+        {
+          id: 'fathy-housing',
+          title: 'مشاريع إسكان ومساجد',
+          year: 'عقود متعددة',
+          img: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=600&fit=crop',
+          desc: 'سلسلة مساكن ومساجد ومدارس في مصر وخارجها تعتمد التهوية الطبيعية والخصوصية والخامة المحلية.'
+        }
+      ]
     },
     contemporary: {
       title: 'جيل معاصر · العالم العربي',
@@ -139,15 +282,39 @@
       body: `
         <p>الجيل المعاصر من المعماريين في العالم العربي يمزج بين الهوية المحلية (المناخ، الخصوصية، الزخرفة، الفناء) وتقنيات البناء الحديثة والبرمجيات.</p>
         <p>من الأسماء والمكاتب التي تُذكر في هذا السياق: طلال العيسوي ومكاتب أخرى تعمل على مشاريع سكنية وتجارية وثقافية تربط التراث بالمعاصرة.</p>
-        <p><strong>اتجاهات بارزة:</strong></p>
-        <ul>
-          <li>استخدام المواد المحلية والمناخية (حجر، طوب، تظليل)</li>
-          <li>إعادة تفسير المشربية والفناء والواجهة المزدوجة</li>
-          <li>مشاريع عامة وثقافية تعكس السياق الحضري العربي</li>
-          <li>الاهتمام بالاستدامة والطاقة في المناخ الحار</li>
-        </ul>
         <p>في DEZN نتابع هذا الحوار ونسعى لتقديم حلول معمارية تناسب السياق المصري والعربي مع جودة التصميم والتقديم البصري.</p>
-      `
+      `,
+      worksIntro: 'اتجاهات ومشاريع تمثّل حوار الهوية والتقنية في المنطقة.',
+      works: [
+        {
+          id: 'contemporary-residential',
+          title: 'مشاريع سكنية معاصرة',
+          year: 'القرن 21',
+          img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop',
+          desc: 'فلل ومجمعات تعيد تفسير الفناء والمشربية والواجهة المزدوجة مع خامات حديثة وتخطيط مريح للمناخ الحار.'
+        },
+        {
+          id: 'contemporary-cultural',
+          title: 'مبانٍ ثقافية وعامة',
+          year: 'القرن 21',
+          img: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=600&fit=crop',
+          desc: 'متاحف ومراكز ثقافية في المنطقة العربية تربط الرمزية المحلية بالفراغات المرنة والتقنية الإنشائية المتقدمة.'
+        },
+        {
+          id: 'contemporary-sustain',
+          title: 'استدامة ومناخ',
+          year: 'اتجاه مستمر',
+          img: 'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop',
+          desc: 'تصاميم تعتمد التظليل، التهوية الطبيعية، والمواد المحلية لتقليل استهلاك الطاقة في المناخ الصحراوي وشبه الصحراوي.'
+        },
+        {
+          id: 'contemporary-hybrid',
+          title: 'مزج التراث والتقنية',
+          year: 'ممارسات معاصرة',
+          img: 'https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=800&h=600&fit=crop',
+          desc: 'استخدام النمذجة الرقمية والرندر مع مفردات معمارية عربية — من الواجهة إلى التفاصيل الداخلية.'
+        }
+      ]
     }
   };
 
@@ -159,6 +326,22 @@
   document.getElementById('bcTitle').textContent = a.title;
   document.getElementById('meta').textContent = a.meta;
   document.getElementById('body').innerHTML = a.body;
+  document.getElementById('worksHeading').textContent = 'أعمال تاريخية — ' + a.title;
+  document.getElementById('worksIntro').textContent = a.worksIntro || '';
+
+  document.getElementById('worksGrid').innerHTML = (a.works || []).map(w => `
+    <a href="work.html?id=${w.id}" class="work-card">
+      <div class="work-img">
+        <img src="${w.img}" alt="${w.title}" loading="lazy">
+      </div>
+      <div class="work-info">
+        <h3>${w.title}</h3>
+        <span class="work-year">${w.year}</span>
+        <p>${w.desc}</p>
+      </div>
+    </a>
+  `).join('');
   </script>
+  <script src="./script.js"></script>
 </body>
 </html>

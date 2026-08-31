@@ -8,6 +8,7 @@
    - contact.html
    - architecture.html
    - architect.html
+   - work.html
    - service.html
    - founder.html
    - style.css
@@ -40,6 +41,7 @@ REPO/
   contact.html
   architecture.html
   architect.html
+   - work.html
   service.html
   founder.html
   style.css

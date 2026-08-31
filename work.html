@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>عمل معماري | DEZN</title>
+  <link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-box">DE<br>ZN</div>
+        <span class="logo-text">DEZN</span>
+      </a>
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="ابحث في الموقع..." autocomplete="off">
+        <button id="searchBtn" aria-label="بحث" type="button">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </button>
+      </div>
+      <nav class="nav">
+        <a href="index.html">المشاريع</a>
+        <a href="architecture.html" class="active">العمارة</a>
+        <a href="founder.html">أحمد رضا</a>
+        <a href="contact.html">تواصل</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="architecture.html">العمارة</a>
+        <span>/</span>
+        <a href="#" id="bcArch">—</a>
+        <span>/</span>
+        <span id="bcTitle">—</span>
+      </div>
+      <h1 id="title">—</h1>
+      <p class="meta" id="meta"></p>
+    </div>
+  </section>
+
+  <div class="project-layout">
+    <img class="project-main-img" id="mainImg" src="" alt="">
+    <div class="specs" id="specs"></div>
+    <div class="project-body" id="body"></div>
+    <div class="project-gallery" id="gallery"></div>
+  </div>
+
+  <div class="project-layout article-page" style="padding-top:0;padding-bottom:60px">
+    <p style="text-align:center">
+      <a href="#" class="back-link" id="backArch">← العودة للمعماري</a>
+      &nbsp;·&nbsp;
+      <a href="architecture.html" class="back-link">تاريخ العمارة</a>
+    </p>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo"><div class="logo-box small">DE<br>ZN</div></div>
+      <p>© 2026 DEZN. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox">
+    <button type="button" class="lightbox-close" id="lbClose">✕</button>
+    <img id="lbImg" src="" alt="">
+  </div>
+
+  <script>
+  const WORKS = {
+    // Gaudi
+    'gaudi-sagrada': {
+      architectId: 'gaudi',
+      architectName: 'أنطوني غاودي',
+      title: 'ساغرادا فاميليا',
+      meta: 'برشلونة، إسبانيا · 1882 – مستمر',
+      specs: [
+        ['الموقع', 'برشلونة'],
+        ['البداية', '1882'],
+        ['الحالة', 'قيد الإنشاء'],
+        ['النوع', 'كاتدرائية'],
+        ['الطراز', 'حداثة / عضوي']
+      ],
+      body: `
+        <p>بازيليكا الساغرادا فاميليا أشهر أعمال أنطوني غاودي وأحد رموز برشلونة والعالم. بدأ العمل عام 1882، وتولى غاودي المشروع من 1883 حتى وفاته 1926، وما زال البناء مستمراً حتى اليوم.</p>
+        <p>التصميم يمزج الرمزية المسيحية بأشكال مستوحاة من الطبيعة: أعمدة كالأشجار، واجهات نحتية كثيفة، وأبراج شاهقة. غاودي اعتمد على نماذج هندسية معقدة (قطع زائدة، قطوع مكافئة) دون رسومات تقليدية بالكامل في فترات لاحقة.</p>
+        <p><strong>لماذا يهم؟</strong></p>
+        <ul>
+          <li>رمز للعمارة كعمل يستغرق أجيالاً</li>
+          <li>دمج الحرفة والنحت مع الإنشاء</li>
+          <li>مصدر إلهام للعمارة العضوية والمعاصرة</li>
+        </ul>
+        <p>اليوم هي من أكثر المعالم زيارة في إسبانيا، ومدرجة ضمن التراث العالمي لليونسكو مع أعمال غاودي الأخرى في برشلونة.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1564221710304-0b37c8b9d729?w=800&h=600&fit=crop'
+      ]
+    },
+    'gaudi-guell': {
+      architectId: 'gaudi',
+      architectName: 'أنطوني غاودي',
+      title: 'حديقة غويل',
+      meta: 'برشلونة، إسبانيا · 1900 – 1914',
+      specs: [
+        ['الموقع', 'برشلونة'],
+        ['السنوات', '1900–1914'],
+        ['النوع', 'حديقة / تخطيط'],
+        ['الراعي', 'يوساب غويل'],
+        ['التراث', 'يونسكو']
+      ],
+      body: `
+        <p>صُممت أصلاً كمجمع سكني فاخر على تلة، ثم تحولت إلى حديقة عامة. غاودي استخدم أعمدة مائلة، فسيفساء (trencadís)، وممرات تشبه الكهوف والمغارات.</p>
+        <p>المكان يجسد فكرته عن دمج المبنى والمناظر الطبيعية: المدرجات، الساحة العامة، وبيت الحارس بواجهة فسيفسائية شهيرة.</p>
+        <p><strong>عناصر مميزة:</strong></p>
+        <ul>
+          <li>المقعد المنحني الطويل المزخرف بالفسيفساء</li>
+          <li>قاعة الأعمدة (سوق سابق)</li>
+          <li>الممرات المدعومة بأعمدة مائلة كالجرانيت الطبيعي</li>
+        </ul>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&h=600&fit=crop'
+      ]
+    },
+    'gaudi-batllo': {
+      architectId: 'gaudi',
+      architectName: 'أنطوني غاودي',
+      title: 'كاسا باتيو',
+      meta: 'برشلونة · 1904 – 1906',
+      specs: [
+        ['الموقع', 'باسييج دي غراسيا'],
+        ['السنوات', '1904–1906'],
+        ['النوع', 'إعادة تصميم منزل'],
+        ['الطراز', 'حداثة كاتالونية']
+      ],
+      body: `
+        <p>إعادة تصميم كاملة لواجهة ومن Interior منزل قائم. الواجهة تُفسر أحياناً كأسطورة القديس جرجس والتنين: عظام، قشور، وصليب على السطح.</p>
+        <p>داخلياً يهتم غاودي بالإضاءة والتهوية والألوان المتدرجة في بئر السلم. كل تفصيلة — من المقابض إلى البلاط — مصممة ضمن نفس اللغة العضوية.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1564221710304-0b37c8b9d729?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1583422409516-2895a77efded?w=800&h=600&fit=crop'
+      ]
+    },
+    'gaudi-mila': {
+      architectId: 'gaudi',
+      architectName: 'أنطوني غاودي',
+      title: 'كاسا ميلا (لا بيدريرا)',
+      meta: 'برشلونة · 1906 – 1912',
+      specs: [
+        ['الموقع', 'برشلونة'],
+        ['السنوات', '1906–1912'],
+        ['النوع', 'مبنى سكني'],
+        ['اللقب', 'المقلعة / المحجر']
+      ],
+      body: `
+        <p>مبنى سكني بواجهة حجرية متموجة بلا خطوط مستقيمة ظاهرة، وشرفات حديدية كنباتات متشابكة، وسقف بمنحوتات مداخن كمحاربين.</p>
+        <p>يُلقب «لا بيدريرا» (المحجر) لشكله. داخلياً فناءان للتهوية والإضاءة، وتخطيط مرن للشقق. من أبرز أمثلة عمارة غاودي المدنية.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1555881400-74d7acaacd8b?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1564221710304-0b37c8b9d729?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=800&h=600&fit=crop'
+      ]
+    },
+    // Corbusier
+    'corbusier-savoye': {
+      architectId: 'corbusier',
+      architectName: 'لو كوربوزييه',
+      title: 'فيلا سافوي',
+      meta: 'بواسي، فرنسا · 1928 – 1931',
+      specs: [
+        ['الموقع', 'بواسي قرب باريس'],
+        ['السنوات', '1928–1931'],
+        ['النوع', 'فيلا خاصة'],
+        ['المبادئ', 'الخمسة للعمارة الحديثة']
+      ],
+      body: `
+        <p>أيقونة الحداثة: منزل أبيض مرفوع على أعمدة (pilotis)، نوافذ شريطية أفقية، مسقط حر، واجهة حرة، وسطح حديقة. تطبيق واضح لمبادئ لو كوربوزييه الخمسة.</p>
+        <p>المنحدر الداخلي يربط الطوابق كمسار مستمر. المبنى يبدو خفيفاً ومنفصلاً عن الأرض، مع إطلالات وإضاءة مدروسة.</p>
+        <p>اليوم متحف وموقع تراث، وما زال يُدرَّس كمرجع أساسي لفهم الحداثة المعمارية.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop'
+      ]
+    },
+    'corbusier-unite': {
+      architectId: 'corbusier',
+      architectName: 'لو كوربوزييه',
+      title: 'وحدة السكن · مارسيليا',
+      meta: 'مارسيليا، فرنسا · 1947 – 1952',
+      specs: [
+        ['الموقع', 'مارسيليا'],
+        ['السنوات', '1947–1952'],
+        ['النوع', 'إسكان جماعي'],
+        ['الشقق', 'حوالي 337']
+      ],
+      body: `
+        <p>«مدينة رأسية»: مبنى ضخم يضم شققاً، شارعاً داخلياً للخدمات، ومرافق على السطح (روضة، مسرح، مسار جري). استجابة لحاجة الإسكان بعد الحرب.</p>
+        <p>الخرسانة المكشوفة (béton brut) أعطت لاحقاً اسمها لحركة الوحشية (Brutalism). الوحدات مزدوجة الارتفاع في أجزاء منها لتحقيق إضاءة وتهوية أفضل.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=600&fit=crop'
+      ]
+    },
+    'corbusier-ronchamp': {
+      architectId: 'corbusier',
+      architectName: 'لو كوربوزييه',
+      title: 'كنيسة نوتردام دو أو',
+      meta: 'رونشان، فرنسا · 1950 – 1955',
+      specs: [
+        ['الموقع', 'رونشان'],
+        ['السنوات', '1950–1955'],
+        ['النوع', 'كنيسة'],
+        ['الطراز', 'تعبيري / حديث']
+      ],
+      body: `
+        <p>انحراف ملحوظ عن الصندوق الأبيض: كتلة نحتية، سقف ثقيل كأنه يطفو، وجدران سميكة بفتحات ملونة غير منتظمة تدخل ضوءاً درامياً.</p>
+        <p>أظهر أن الحداثة ليست أسلوباً واحداً، بل يمكن أن تكون روحية وحسية. من أكثر المباني الدينية تأثيراً في القرن العشرين.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=800&h=600&fit=crop'
+      ]
+    },
+    'corbusier-chandigarh': {
+      architectId: 'corbusier',
+      architectName: 'لو كوربوزييه',
+      title: 'مجمع شانديغار',
+      meta: 'شانديغار، الهند · 1951 – 1965',
+      specs: [
+        ['الموقع', 'شانديغار'],
+        ['السنوات', '1951–1965'],
+        ['النوع', 'عاصمة / مجمع حكومي'],
+        ['عناصر', 'برلمان · محكمة · سكرتارية']
+      ],
+      body: `
+        <p>تخطيط مدينة جديدة ومبانٍ حكومية للهند بعد الاستقلال. البرلمان والمحكمة والسكرتارية بخرسانة مكشوفة ومظلات شمسية (brise-soleil) تناسب المناخ.</p>
+        <p>مثال على تصدير أفكار الحداثة الأوروبية إلى سياق آسيوي، وما زال يثير نقاشاً حول الهوية والتخطيط الحضري.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop'
+      ]
+    },
+    // Wright
+    'wright-fallingwater': {
+      architectId: 'wright',
+      architectName: 'فرانك لويد رايت',
+      title: 'منزل الشلال (Fallingwater)',
+      meta: 'بنسلفانيا، أمريكا · 1935 – 1939',
+      specs: [
+        ['الموقع', 'ميل ران، بنسلفانيا'],
+        ['السنوات', '1935–1939'],
+        ['النوع', 'منزل خاص'],
+        ['الخامة', 'خرسانة · حجر · زجاج']
+      ],
+      body: `
+        <p>أشهر أمثلة العمارة العضوية: المنزل مبني فوق شلال، والشرفات الخرسانية تمتد كطبقات أفقية فوق الماء والصخور.</p>
+        <p>رايت دمج الحجر المحلي مع الخرسانة والزجاج، وجعل صوت الماء جزءاً من تجربة المكان. المبنى يبدو نابعاً من الموقع لا موضوعاً عليه.</p>
+        <p>اليوم متحف وموقع تراث وطني أمريكي، ومن أكثر المنازل تصويراً في تاريخ العمارة.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=800&h=600&fit=crop'
+      ]
+    },
+    'wright-guggenheim': {
+      architectId: 'wright',
+      architectName: 'فرانك لويد رايت',
+      title: 'متحف غوغنهايم',
+      meta: 'نيويورك · 1943 – 1959',
+      specs: [
+        ['الموقع', 'الشارع الخامس، NY'],
+        ['السنوات', '1943–1959'],
+        ['النوع', 'متحف'],
+        ['الفكرة', 'منحدر حلزوني']
+      ],
+      body: `
+        <p>متحف حلزوني: الزائر يصعد منحدراً مستمراً حول فراغ مركزي مضيء من قبة. رايت أراد تجربة عرض مختلفة عن الغرف المتتالية التقليدية.</p>
+        <p>الشكل الخارجي الأسطواني الأبيض أصبح أيقونة نيويورك. بعض النقاد ناقشوا ميل الجدران وصلاحيتها للوحات، لكن التأثير على تصميم المتاحف لاحقاً كان كبيراً.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop'
+      ]
+    },
+    'wright-prairie': {
+      architectId: 'wright',
+      architectName: 'فرانك لويد رايت',
+      title: 'منازل البراري',
+      meta: 'الولايات المتحدة · حوالي 1900 – 1910',
+      specs: [
+        ['المنطقة', 'الغرب الأوسط'],
+        ['الفترة', 'حوالي 1900–1910'],
+        ['النوع', 'منازل'],
+        ['سمات', 'أفقي · أسقف ممتدة']
+      ],
+      body: `
+        <p>سلسلة منازل أفقية منخفضة تناسب أراضي البراري الأمريكية: أسقف عريضة ممتدة، نوافذ شريطية، مداخن مركزية، وربط قوي بين الداخل والحديقة.</p>
+        <p>رفضت الطراز الفيكتوري العمودي والزخرفة المستوردة، وسعت لعمارة «أمريكية» مرتبطة بالموقع. من أشهرها منزل روبي في شيكاغو.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=800&h=600&fit=crop'
+      ]
+    },
+    'wright-taliesin': {
+      architectId: 'wright',
+      architectName: 'فرانك لويد رايت',
+      title: 'طالييسين',
+      meta: 'ويسكونسن / أريزونا · 1911 وما بعد',
+      specs: [
+        ['المواقع', 'ويسكونسن · أريزونا'],
+        ['البداية', '1911'],
+        ['النوع', 'منزل · مدرسة · استوديو'],
+        ['الفكرة', 'عيش وعمل وتعليم']
+      ],
+      body: `
+        <p>مجمع رايت الشخصي: منزل، استوديو، ومدرسة معمارية مدمجة مع التلال في ويسكونسن، ثم طالييسين ويست في أريزونا للشتاء.</p>
+        <p>مكان تجريبي للخامات والاندماج مع الموقع، ومنصة لتعليم جيل من المعماريين. يعكس فلسفته أن العمارة أسلوب حياة لا مجرد مباني.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop'
+      ]
+    },
+    // Hadid
+    'hadid-aliyev': {
+      architectId: 'hadid',
+      architectName: 'زها حديد',
+      title: 'مركز حيدر علييف',
+      meta: 'باكو، أذربيجان · 2007 – 2012',
+      specs: [
+        ['الموقع', 'باكو'],
+        ['السنوات', '2007–2012'],
+        ['النوع', 'مركز ثقافي'],
+        ['السمة', 'سطح مستمر انسيابي']
+      ],
+      body: `
+        <p>أحد أشهر مباني القرن 21: سطح أبيض مستمر ينساب من الساحة إلى السقف بلا زوايا حادة واضحة، ويضم قاعات عرض ومتحف ومسرح.</p>
+        <p>التصميم يعتمد نمذجة رقمية متقدمة وهيكل معقد. أصبح صورة أيقونية للعمارة «البلاستيكية» المعاصرة وللدور الذي لعبته زها حديد عالمياً.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop'
+      ]
+    },
+    'hadid-aquatics': {
+      architectId: 'hadid',
+      architectName: 'زها حديد',
+      title: 'مركز الألعاب المائية · لندن',
+      meta: 'لندن · 2008 – 2011',
+      specs: [
+        ['الموقع', 'لندن'],
+        ['السنوات', '2008–2011'],
+        ['النوع', 'منشأة رياضية'],
+        ['الحدث', 'أولمبياد 2012']
+      ],
+      body: `
+        <p>مسبح أولمبي بسقف متموج كالموجة، صُمم لدورة لندن 2012. الهيكل يسمح بفراغ واسع دون أعمدة كثيرة في منطقة الأحواض.</p>
+        <p>بعد الدورة تم تكييف أجزاء من المنشأ للاستخدام العام. يجسد قدرة مكتب حديد على المباني العامة الكبرى لا المعارض فقط.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=600&fit=crop'
+      ]
+    },
+    'hadid-maxxi': {
+      architectId: 'hadid',
+      architectName: 'زها حديد',
+      title: 'متحف MAXXI',
+      meta: 'روما، إيطاليا · 1998 – 2009',
+      specs: [
+        ['الموقع', 'روما'],
+        ['السنوات', '1998–2009'],
+        ['النوع', 'متحف فن معاصر'],
+        ['الفكرة', 'مسارات متداخلة']
+      ],
+      body: `
+        <p>متحف الفن في القرن الحادي والعشرين في روما: بدل الغرف المتتالية، مسارات ومنحدرات متداخلة وخرسانة بيضاء وفراغات مرنة للعرض.</p>
+        <p>من أوائل المشاريع الكبرى التي رسّخت أسلوب حديد عالمياً، وفازت عنها بجائزة ستيرلينغ.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop'
+      ]
+    },
+    'hadid-soho': {
+      architectId: 'hadid',
+      architectName: 'زها حديد',
+      title: 'غالاكسي سوهو · بكين',
+      meta: 'بكين، الصين · 2009 – 2012',
+      specs: [
+        ['الموقع', 'بكين'],
+        ['السنوات', '2009–2012'],
+        ['النوع', 'مكاتب وتجزئة'],
+        ['السمة', 'كتل منحنية متصلة']
+      ],
+      body: `
+        <p>مجمع مكاتب ومحلات بكتل منحنية متدفقة كأنها نحت حضري في قلب بكين. الفراغات العامة بين الكتل تشجع الحركة واللقاء.</p>
+        <p>مثال على تطبيق لغة حديد الانسيابية على مقياس تجاري كبير في آسيا.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop'
+      ]
+    },
+    // Fathy
+    'fathy-gourna': {
+      architectId: 'fathy',
+      architectName: 'حسن فتحي',
+      title: 'قرية القرنة الجديدة',
+      meta: 'قرب الأقصر، مصر · 1945 – 1948',
+      specs: [
+        ['الموقع', 'غرب الأقصر'],
+        ['السنوات', '1945–1948'],
+        ['النوع', 'قرية / إسكان'],
+        ['الخامة', 'طوب لبن']
+      ],
+      body: `
+        <p>أشهر مشاريع حسن فتحي: قرية نموذجية بالطوب اللبن والقباب والأفنية لإعادة توطين سكان من منطقة أثرية. اعتمد على حرفيين محليين وتقنيات تقليدية ملائمة للمناخ.</p>
+        <p>المشروع واجه تحديات اجتماعية وتنفيذية، لكنه أصبح رمزاً عالمياً لـ«عمارة الفقراء» والاستدامة قبل رواج المصطلح.</p>
+        <p>وثّق التجربة لاحقاً في كتابه الشهير، وأثر على أجيال من المعماريين في العالم النامي.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop'
+      ]
+    },
+    'fathy-book': {
+      architectId: 'fathy',
+      architectName: 'حسن فتحي',
+      title: 'عمارة الفقراء (الكتاب)',
+      meta: 'نُشر 1969 / إنجليزي 1973',
+      specs: [
+        ['النوع', 'كتاب / فكر'],
+        ['السنة', '1969 / 1973'],
+        ['الموضوع', 'عمارة · مجتمع · مناخ'],
+        ['الأثر', 'عالمي']
+      ],
+      body: `
+        <p>كتابه الأشهر يروي تجربة القرنة ويدعو لعمارة مناسبة اقتصادياً ومناخياً واجتماعياً، بدل استيراد نماذج غربية مكلفة وغير ملائمة.</p>
+        <p>رفض فكرة أن «التقدم» يعني بالضرورة الخرسانة والزجاج المستورد، ودافع عن تمكين الحرفي المحلي. أصبح مرجعاً في عمارة التنمية والاستدامة الاجتماعية.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=600&fit=crop'
+      ]
+    },
+    'fathy-dar': {
+      architectId: 'fathy',
+      architectName: 'حسن فتحي',
+      title: 'دار الإسلام · نيو مكسيكو',
+      meta: 'نيو مكسيكو، أمريكا · 1981',
+      specs: [
+        ['الموقع', 'أبوكويركي وما حولها'],
+        ['السنة', '1981'],
+        ['النوع', 'مجمع ثقافي'],
+        ['الطراز', 'طيني / قبابي']
+      ],
+      body: `
+        <p>مجمع ثقافي وتعليمي في الولايات المتحدة بطراز فتحي الطيني والقبابي، ليؤكد أن مبادئه تصلح خارج مصر وفي سياقات أخرى تهتم بالخامة المحلية والمناخ.</p>
+        <p>يظهر استمرارية أفكاره في العقود الأخيرة من حياته وانفتاحها على حوار عالمي حول الهوية والاستدامة.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=800&h=600&fit=crop'
+      ]
+    },
+    'fathy-housing': {
+      architectId: 'fathy',
+      architectName: 'حسن فتحي',
+      title: 'مشاريع إسكان ومساجد',
+      meta: 'مصر وخارجها · عقود متعددة',
+      specs: [
+        ['النطاق', 'مصر · عالمي'],
+        ['الأنواع', 'سكن · مساجد · مدارس'],
+        ['المبادئ', 'تهوية · خصوصية · خامة محلية']
+      ],
+      body: `
+        <p>سلسلة مساكن ومساجد ومدارس تعتمد التهوية الطبيعية، الفناء، الخصوصية، والطوب أو الحجر المحلي. ليست مشروعاً واحداً بل مسار حياة مهنية.</p>
+        <p>تجمع بين الوظيفة اليومية والجمال البسيط، وترفض الزخرفة المستوردة غير المرتبطة بالمناخ والمجتمع.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop'
+      ]
+    },
+    // Contemporary
+    'contemporary-residential': {
+      architectId: 'contemporary',
+      architectName: 'جيل معاصر',
+      title: 'مشاريع سكنية معاصرة',
+      meta: 'العالم العربي · القرن 21',
+      specs: [
+        ['النوع', 'سكني'],
+        ['الفترة', 'القرن 21'],
+        ['سمات', 'فناء · مشربية · تظليل']
+      ],
+      body: `
+        <p>فلل ومجمعات تعيد تفسير الفناء والمشربية والواجهة المزدوجة مع خامات وتقنيات حديثة. الهدف: خصوصية، تبريد سلبي، وهوية بصرية معاصرة.</p>
+        <p>تنتشر هذه المقاربات في الخليج ومصر والمغرب وغيرها، مع اختلاف الخامات حسب المناخ المحلي.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=800&h=600&fit=crop'
+      ]
+    },
+    'contemporary-cultural': {
+      architectId: 'contemporary',
+      architectName: 'جيل معاصر',
+      title: 'مبانٍ ثقافية وعامة',
+      meta: 'المنطقة العربية · القرن 21',
+      specs: [
+        ['النوع', 'ثقافي / عام'],
+        ['أمثلة', 'متاحف · مراكز'],
+        ['الهدف', 'هوية + فراغ مرن']
+      ],
+      body: `
+        <p>متاحف ومراكز ثقافية تربط الرمزية المحلية بالفراغات المرنة والتقنية الإنشائية. غالباً ما تكون واجهاتها وموادها حواراً مع التراث دون نسخ مباشر.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop'
+      ]
+    },
+    'contemporary-sustain': {
+      architectId: 'contemporary',
+      architectName: 'جيل معاصر',
+      title: 'استدامة ومناخ',
+      meta: 'اتجاه مستمر في المنطقة',
+      specs: [
+        ['التركيز', 'طاقة · مناخ'],
+        ['وسائل', 'تظليل · تهوية · مواد محلية']
+      ],
+      body: `
+        <p>تصاميم تقلل التكييف الصناعي عبر التوجيه، التظليل، التهوية الطبيعية، والخامات المناسبة للمناخ الحار والجاف أو الرطب.</p>
+        <p>امتداد معاصر لأفكار حسن فتحي وآخرين، مع أدوات قياس ومحاكاة حديثة.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=800&h=600&fit=crop'
+      ]
+    },
+    'contemporary-hybrid': {
+      architectId: 'contemporary',
+      architectName: 'جيل معاصر',
+      title: 'مزج التراث والتقنية',
+      meta: 'ممارسات معاصرة',
+      specs: [
+        ['الأدوات', 'نمذجة · رندر'],
+        ['المفردات', 'واجهة · مشربية · قبة']
+      ],
+      body: `
+        <p>استخدام البرمجيات والنمذجة الرقمية والرندر مع مفردات معمارية عربية — من الواجهة إلى التفاصيل. النتيجة ليست تقليداً أعمى ولا قطيعة كاملة مع الماضي.</p>
+        <p>هذا هو السياق الذي يعمل فيه كثير من المصممين المعاصرين في المنطقة، ومنهم مسار DEZN في الربط بين الوظيفة والجمال والتقديم البصري.</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&h=600&fit=crop'
+      ]
+    }
+  };
+
+  const id = new URLSearchParams(location.search).get('id') || 'gaudi-sagrada';
+  const w = WORKS[id] || WORKS['gaudi-sagrada'];
+
+  document.title = w.title + ' | DEZN';
+  document.getElementById('title').textContent = w.title;
+  document.getElementById('bcTitle').textContent = w.title;
+  document.getElementById('meta').textContent = w.meta;
+  document.getElementById('mainImg').src = w.imgs[0];
+  document.getElementById('mainImg').alt = w.title;
+  document.getElementById('body').innerHTML = w.body;
+
+  const archLink = 'architect.html?id=' + w.architectId;
+  const bcArch = document.getElementById('bcArch');
+  bcArch.textContent = w.architectName;
+  bcArch.href = archLink;
+  document.getElementById('backArch').href = archLink + '#works';
+
+  document.getElementById('specs').innerHTML = w.specs.map(([k,v]) =>
+    `<div class="spec-item"><strong>${k}</strong><span>${v}</span></div>`
+  ).join('');
+
+  const gal = document.getElementById('gallery');
+  gal.innerHTML = w.imgs.slice(1).map(src =>
+    `<img src="${src}" alt="" loading="lazy" data-full="${src}">`
+  ).join('');
+
+  // Lightbox
+  const lb = document.getElementById('lightbox');
+  function openLb(src) {
+    document.getElementById('lbImg').src = src;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('mainImg').onclick = () => openLb(w.imgs[0]);
+  gal.querySelectorAll('img').forEach(img => {
+    img.onclick = () => openLb(img.dataset.full || img.src);
+  });
+  document.getElementById('lbClose').onclick = closeLb;
+  lb.onclick = e => { if (e.target === lb) closeLb(); };
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+  </script>
+  <script src="./script.js"></script>
+</body>
+</html>
