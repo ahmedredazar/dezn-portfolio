@@ -31,7 +31,7 @@
       <nav class="nav">
         <a href="index.html" class="active">المشاريع</a>
         <a href="#about">عني</a>
-        <a href="#contact">تواصل</a>
+        <a href="contact.html">تواصل</a>
       </nav>
     </div>
   </header>
@@ -65,7 +65,7 @@
     <div class="container">
       <div class="projects-grid" id="projectsGrid">
 
-        <a href="project.html" class="project-card" data-category="residential" data-tags="فيلا سكنية حديثة منزل">
+        <a href="project.html?id=villa" class="project-card" data-category="residential" data-tags="فيلا سكنية حديثة منزل">
           <div class="project-image">
             <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=800&h=600&fit=crop" alt="فيلا سكنية حديثة" loading="lazy">
           </div>
@@ -75,7 +75,7 @@
           </div>
         </a>
 
-        <a href="project.html" class="project-card" data-category="residential" data-tags="مجمع سكني فاخر شقق">
+        <a href="project.html?id=complex" class="project-card" data-category="residential" data-tags="مجمع سكني فاخر شقق">
           <div class="project-image">
             <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop" alt="مجمع سكني" loading="lazy">
           </div>
@@ -85,7 +85,7 @@
           </div>
         </a>
 
-        <a href="project.html" class="project-card" data-category="interior" data-tags="تصميم داخلي شقة">
+        <a href="project.html?id=apartment" class="project-card" data-category="interior" data-tags="تصميم داخلي شقة">
           <div class="project-image">
             <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop" alt="تصميم داخلي" loading="lazy">
           </div>
@@ -95,7 +95,7 @@
           </div>
         </a>
 
-        <a href="project.html" class="project-card" data-category="commercial" data-tags="مبنى إداري مكتب">
+        <a href="project.html?id=office" class="project-card" data-category="commercial" data-tags="مبنى إداري مكتب">
           <div class="project-image">
             <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop" alt="مبنى إداري" loading="lazy">
           </div>
@@ -105,7 +105,7 @@
           </div>
         </a>
 
-        <a href="project.html" class="project-card" data-category="public" data-tags="مركز ثقافي متحف">
+        <a href="project.html?id=museum" class="project-card" data-category="public" data-tags="مركز ثقافي متحف">
           <div class="project-image">
             <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=600&fit=crop" alt="متحف ثقافي" loading="lazy">
           </div>
@@ -115,7 +115,7 @@
           </div>
         </a>
 
-        <a href="project.html" class="project-card" data-category="landscape" data-tags="منتجع سياحي">
+        <a href="project.html?id=resort" class="project-card" data-category="landscape" data-tags="منتجع سياحي">
           <div class="project-image">
             <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop" alt="منتجع سياحي" loading="lazy">
           </div>
@@ -125,7 +125,7 @@
           </div>
         </a>
 
-        <a href="project.html" class="project-card" data-category="residential" data-tags="بيت صيفي">
+        <a href="project.html?id=beach" class="project-card" data-category="residential" data-tags="بيت صيفي">
           <div class="project-image">
             <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop" alt="بيت صيفي" loading="lazy">
           </div>
@@ -135,7 +135,7 @@
           </div>
         </a>
 
-        <a href="project.html" class="project-card" data-category="commercial" data-tags="مول تجاري">
+        <a href="project.html?id=mall" class="project-card" data-category="commercial" data-tags="مول تجاري">
           <div class="project-image">
             <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop" alt="مول تجاري" loading="lazy">
           </div>
@@ -145,7 +145,7 @@
           </div>
         </a>
 
-        <a href="project.html" class="project-card" data-category="interior" data-tags="مكتب تصميم">
+        <a href="project.html?id=workspace" class="project-card" data-category="interior" data-tags="مكتب تصميم">
           <div class="project-image">
             <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&h=600&fit=crop" alt="مكتب حديث" loading="lazy">
           </div>
@@ -168,6 +168,27 @@
     <div class="container">
       <h2 class="section-title">اقتراحات قد تعجبك</h2>
       <div class="suggestions-grid" id="suggestionsGrid"></div>
+    </div>
+  </section>
+
+  
+  <section class="services" id="services">
+    <div class="container">
+      <h2 class="section-title">الخدمات</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <h3>تصميم معماري</h3>
+          <p>من الفكرة إلى المخططات التنفيذية للمشاريع السكنية والتجارية والعامة.</p>
+        </div>
+        <div class="service-card">
+          <h3>تصميم داخلي</h3>
+          <p>فراغات داخلية متناسقة مع الخامات والإضاءة والأثاث.</p>
+        </div>
+        <div class="service-card">
+          <h3>تصور ثلاثي الأبعاد</h3>
+          <p>رندر ومرئيات معمارية لعرض المشروع قبل التنفيذ.</p>
+        </div>
+      </div>
     </div>
   </section>
 

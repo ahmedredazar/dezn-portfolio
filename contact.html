@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تواصل | DEZN</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-box">DE<br>ZN</div>
+        <span class="logo-text">DEZN</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">المشاريع</a>
+        <a href="index.html#about">عني</a>
+        <a href="contact.html" class="active">تواصل</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>تواصل معنا</h1>
+      <p class="meta">للاستفسارات والمشاريع الجديدة</p>
+    </div>
+  </section>
+
+  <div class="contact-page">
+    <p class="intro">اكتب نبذة عن مشروعك وسنتواصل معك في أقرب وقت.</p>
+    <form
+  action="https://formsubmit.co/dezncore@gmail.com"
+  method="POST"
+  id="form"
+>
+      <div class="form-row">
+        <div class="form-group">
+          <label>الاسم</label>
+          <input type="text" name="name" required>
+        </div>
+        <div class="form-group">
+          <label>البريد الإلكتروني</label>
+          <input type="email" name="email" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>رقم الهاتف (اختياري)</label>
+        <input type="tel" name="phone">
+      </div>
+      <div class="form-group">
+        <label>نوع المشروع</label>
+        <select name="type">
+          <option value="">اختر...</option>
+          <option>سكني</option>
+          <option>تجاري</option>
+          <option>تصميم داخلي</option>
+          <option>عام / ثقافي</option>
+          <option>منتجع</option>
+          <option>أخرى</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>الرسالة</label>
+        <textarea name="message" required placeholder="صف مشروعك باختصار..."></textarea>
+      </div>
+      <button type="submit" class="btn-submit">إرسال</button>
+    </form>
+
+    <div class="contact-alt">
+      <p>أو تواصل مباشرة عبر</p>
+      <div class="socials">
+        <a href="https://www.facebook.com/Dezn1/" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.instagram.com/dezncore/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.behance.net/ahmedreda477" target="_blank" rel="noopener">Behance</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo"><div class="logo-box small">DE<br>ZN</div></div>
+      <p>© 2026 DEZN. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+</body>
+</html>

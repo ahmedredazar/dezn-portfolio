@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>فيلا سكنية حديثة | DEZN</title>
+  <title>مشروع | DEZN</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -19,57 +17,248 @@
       <nav class="nav">
         <a href="index.html">المشاريع</a>
         <a href="index.html#about">عني</a>
-        <a href="index.html#contact">تواصل</a>
+        <a href="contact.html">تواصل</a>
       </nav>
     </div>
   </header>
 
-  <section class="project-hero">
+  <section class="page-hero">
     <div class="container">
-      <a href="index.html" class="back-link">← رجوع للمشاريع</a>
-      <h1>فيلا سكنية حديثة</h1>
-      <p class="meta">Residential Architecture · 2025 · 450 م²</p>
+      <div class="breadcrumb">
+        <a href="index.html">المشاريع</a>
+        <span>/</span>
+        <span id="bcCat">—</span>
+        <span>/</span>
+        <span id="bcTitle">—</span>
+      </div>
+      <h1 id="title">—</h1>
+      <p class="meta" id="meta"></p>
     </div>
   </section>
 
-  <div class="project-content">
-    <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=1200&h=800&fit=crop" alt="الواجهة الرئيسية">
+  <div class="project-layout">
+    <img class="project-main-img" id="mainImg" src="" alt="">
 
-    <p>
-      مشروع فيلا سكنية مستقلة بمساحة 450 متر مربع، مصممة لعائلة معاصرة مع تركيز على الإضاءة الطبيعية والمساحات المفتوحة.
-    </p>
+    <div class="specs" id="specs"></div>
 
-    <p>
-      التصميم يعتمد على خطوط بسيطة ونظيفة، مع استخدام مواد طبيعية مثل الحجر والخرسانة المكشوفة والزجاج الكبير. الواجهة الجنوبية تحتوي على فتحات واسعة لتعظيم دخول الشمس شتاءً وتقليلها صيفاً.
-    </p>
+    <div class="project-body" id="body"></div>
 
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=800&fit=crop" alt="المنظور الخارجي">
-
-    <p>
-      <strong>البرنامج الوظيفي:</strong><br>
-      • طابق أرضي: صالة معيشة مفتوحة + مطبخ + غرفة ضيوف + حمام<br>
-      • طابق أول: 3 غرف نوم + حمامين + تراس<br>
-      • سطح: منطقة جلوس خارجية مع إطلالة
-    </p>
-
-    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&h=800&fit=crop" alt="التصميم الداخلي">
-
-    <p>
-      التصميم الداخلي يتبع نفس روح الواجهة: ألوان محايدة، خامات طبيعية، وأثاث بسيط. الإضاءة مختلطة بين طبيعية وصناعية مخفية.
-    </p>
-
-    <p>
-      تم التنفيذ باستخدام: AutoCAD · Revit · 3ds Max
-    </p>
+    <div class="project-gallery" id="gallery"></div>
   </div>
+
+  <section class="related">
+    <div class="container">
+      <h2>مشاريع مشابهة</h2>
+      <div class="related-grid" id="related"></div>
+    </div>
+  </section>
 
   <footer class="footer">
     <div class="container">
-      <div class="footer-logo">
-        <div class="logo-box small">DE<br>ZN</div>
-      </div>
+      <div class="footer-logo"><div class="logo-box small">DE<br>ZN</div></div>
       <p>© 2026 DEZN. جميع الحقوق محفوظة.</p>
     </div>
   </footer>
+
+  <div class="lightbox" id="lightbox">
+    <button type="button" class="lightbox-close" id="lbClose">✕</button>
+    <img id="lbImg" src="" alt="">
+  </div>
+
+  <script>
+  const PROJECTS = {
+    villa: {
+      title: 'فيلا سكنية حديثة',
+      catLabel: 'سكني',
+      category: 'residential',
+      meta: 'Residential Architecture · 2025 · 450 م²',
+      specs: [
+        ['المساحة', '450 م²'],
+        ['السنة', '2025'],
+        ['النوع', 'فيلا مستقلة'],
+        ['الموقع', 'القاهرة'],
+        ['الحالة', 'تصميم']
+      ],
+      body: `
+        <p>مشروع فيلا سكنية مستقلة بمساحة 450 متر مربع، مصممة لعائلة معاصرة مع تركيز على الإضاءة الطبيعية والمساحات المفتوحة.</p>
+        <p>التصميم يعتمد على خطوط بسيطة ونظيفة، مع استخدام مواد طبيعية مثل الحجر والخرسانة المكشوفة والزجاج الكبير. الواجهة الجنوبية تحتوي على فتحات واسعة لتعظيم دخول الشمس شتاءً وتقليلها صيفاً.</p>
+        <p><strong>البرنامج الوظيفي:</strong></p>
+        <ul>
+          <li>طابق أرضي: صالة معيشة مفتوحة + مطبخ + غرفة ضيوف + حمام</li>
+          <li>طابق أول: 3 غرف نوم + حمامين + تراس</li>
+          <li>سطح: منطقة جلوس خارجية مع إطلالة</li>
+        </ul>
+        <p>التصميم الداخلي يتبع نفس روح الواجهة: ألوان محايدة، خامات طبيعية، وأثاث بسيط. الإضاءة مختلطة بين طبيعية وصناعية مخفية.</p>
+        <p>تم التنفيذ باستخدام: AutoCAD · Revit · 3ds Max</p>
+      `,
+      imgs: [
+        'https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop'
+      ]
+    },
+    complex: {
+      title: 'مجمع سكني فاخر',
+      catLabel: 'سكني',
+      category: 'residential',
+      meta: 'Multi-family · 2024',
+      specs: [['المساحة','12000 م²'],['السنة','2024'],['النوع','مجمع سكني'],['الوحدات','48'],['الموقع','القاهرة']],
+      body: '<p>مجمع سكني منظم حول أفنية خضراء مشتركة. كل وحدة تحتفظ بخصوصيتها مع إحساس بالمجتمع في المساحات المشتركة.</p><p>الممرات والفراغات العامة مصممة لتقليل الحركة العابرة وزيادة الأمان والخصوصية.</p>',
+      imgs: [
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop'
+      ]
+    },
+    apartment: {
+      title: 'تصميم داخلي - شقة',
+      catLabel: 'داخلي',
+      category: 'interior',
+      meta: 'Interior Design · 2025',
+      specs: [['المساحة','180 م²'],['السنة','2025'],['النوع','تصميم داخلي'],['الغرف','3+1']],
+      body: '<p>تصميم داخلي هادئ لشقة سكنية: خامات طبيعية، إضاءة ناعمة، وتكوين بسيط للأثاث والمساحات.</p><p>الألوان محايدة مع لمسات خشبية ومعدنية خفيفة لخلق جو مريح للعائلة.</p>',
+      imgs: [
+        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&h=600&fit=crop'
+      ]
+    },
+    office: {
+      title: 'مبنى إداري حديث',
+      catLabel: 'تجاري',
+      category: 'commercial',
+      meta: 'Commercial · 2024',
+      specs: [['المساحة','8500 م²'],['السنة','2024'],['النوع','مكاتب'],['الأدوار','12']],
+      body: '<p>مبنى إداري بواجهة زجاجية وأدوار مرنة تناسب فرق العمل المتغيرة. التركيز على الإضاءة الطبيعية والتهوية والوضوح في الحركة الرأسية والأفقية.</p>',
+      imgs: [
+        'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&h=600&fit=crop'
+      ]
+    },
+    museum: {
+      title: 'مركز ثقافي ومتحف',
+      catLabel: 'عام / ثقافي',
+      category: 'public',
+      meta: 'Cultural · 2023',
+      specs: [['المساحة','6000 م²'],['السنة','2023'],['النوع','ثقافي'],['الموقع','القاهرة']],
+      body: '<p>مركز ثقافي ومتحف بكتلة نحتية ومدخل مفتوح يستقبل الجمهور. المسار الداخلي يربط قاعات العرض بفراغات الاستراحة والإطلالات الخارجية.</p>',
+      imgs: [
+        'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop'
+      ]
+    },
+    resort: {
+      title: 'منتجع سياحي',
+      catLabel: 'منتجعات',
+      category: 'landscape',
+      meta: 'Hospitality · 2024',
+      specs: [['المساحة','25000 م²'],['السنة','2024'],['النوع','منتجع'],['الوحدات','80']],
+      body: '<p>منتجع سياحي بمساحات مفتوحة وإطلالات وخدمات متكاملة. التخطيط يفصل بين حركة الزوار والخدمات مع الحفاظ على الهوية البصرية للمكان.</p>',
+      imgs: [
+        'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop'
+      ]
+    },
+    beach: {
+      title: 'بيت صيفي على البحر',
+      catLabel: 'سكني',
+      category: 'residential',
+      meta: 'Coastal Residential · 2024',
+      specs: [['المساحة','320 م²'],['السنة','2024'],['النوع','بيت صيفي'],['الموقع','ساحل']],
+      body: '<p>بيت صيفي مفتوح على البحر مع تراسات مظللة وخامات مناسبة للمناخ الساحلي. المخطط يتابع خط الأفق ويقلل من التعرض المباشر للشمس في أوقات الذروة.</p>',
+      imgs: [
+        'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=800&h=600&fit=crop'
+      ]
+    },
+    mall: {
+      title: 'مركز تسوق حديث',
+      catLabel: 'تجاري',
+      category: 'commercial',
+      meta: 'Retail · 2024',
+      specs: [['المساحة','18000 م²'],['السنة','2024'],['النوع','تجزئة'],['المحاور','3']],
+      body: '<p>مركز تسوق بواجهة حضرية واضحة ومسارات حركة سلسة بين المحلات والفراغات العامة. التصميم يوازن بين الجاذبية التجارية وسهولة التشغيل.</p>',
+      imgs: [
+        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=600&fit=crop'
+      ]
+    },
+    workspace: {
+      title: 'تصميم مكتب حديث',
+      catLabel: 'داخلي',
+      category: 'interior',
+      meta: 'Workspace · 2025',
+      specs: [['المساحة','450 م²'],['السنة','2025'],['النوع','مكتب'],['محطات','40']],
+      body: '<p>مساحة عمل مرنة بإضاءة طبيعية وتخطيط مفتوح مع مناطق اجتماعات هادئة. الخامات والألوان تدعم التركيز والراحة لفترات العمل الطويلة.</p>',
+      imgs: [
+        'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1400&h=900&fit=crop',
+        'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop',
+        'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop'
+      ]
+    }
+  };
+
+  const id = new URLSearchParams(location.search).get('id') || 'villa';
+  const p = PROJECTS[id] || PROJECTS.villa;
+
+  document.title = p.title + ' | DEZN';
+  document.getElementById('title').textContent = p.title;
+  document.getElementById('bcTitle').textContent = p.title;
+  document.getElementById('bcCat').textContent = p.catLabel;
+  document.getElementById('meta').textContent = p.meta;
+  document.getElementById('mainImg').src = p.imgs[0];
+  document.getElementById('mainImg').alt = p.title;
+  document.getElementById('body').innerHTML = p.body;
+
+  document.getElementById('specs').innerHTML = p.specs.map(([k,v]) =>
+    `<div class="spec-item"><strong>${k}</strong><span>${v}</span></div>`
+  ).join('');
+
+  const gal = document.getElementById('gallery');
+  gal.innerHTML = p.imgs.slice(1).map(src =>
+    `<img src="${src}" alt="" loading="lazy" data-full="${src}">`
+  ).join('');
+
+  // Related
+  const related = Object.entries(PROJECTS)
+    .filter(([k, v]) => k !== id && v.category === p.category)
+    .slice(0, 3);
+  const more = related.length < 3
+    ? Object.entries(PROJECTS).filter(([k]) => k !== id && !related.find(r => r[0] === k)).slice(0, 3 - related.length)
+    : [];
+  const allRel = [...related, ...more].slice(0, 4);
+  document.getElementById('related').innerHTML = allRel.map(([k, v]) => `
+    <a href="project.html?id=${k}" class="suggestion-card">
+      <img src="${v.imgs[0]}&w=400" alt="${v.title}" loading="lazy"
+        onerror="this.src='${v.imgs[0]}'">
+      <p>${v.title}</p>
+    </a>
+  `).join('');
+
+  // Lightbox
+  const lb = document.getElementById('lightbox');
+  function openLb(src) {
+    document.getElementById('lbImg').src = src;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb() {
+    lb.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('mainImg').onclick = () => openLb(p.imgs[0]);
+  gal.querySelectorAll('img').forEach(img => {
+    img.onclick = () => openLb(img.dataset.full || img.src);
+  });
+  document.getElementById('lbClose').onclick = closeLb;
+  lb.onclick = e => { if (e.target === lb) closeLb(); };
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+  </script>
 </body>
 </html>
