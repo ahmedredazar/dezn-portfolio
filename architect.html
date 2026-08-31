@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>معماري | DEZN</title>
+  <link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-box">DE<br>ZN</div>
+        <span class="logo-text">DEZN</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html">المشاريع</a>
+        <a href="architecture.html" class="active">العمارة</a>
+        <a href="founder.html">أحمد رضا</a>
+        <a href="contact.html">تواصل</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="architecture.html">العمارة</a>
+        <span>/</span>
+        <span id="bcTitle">—</span>
+      </div>
+      <h1 id="title">—</h1>
+      <p class="meta" id="meta"></p>
+    </div>
+  </section>
+
+  <div class="project-layout article-page">
+    <div class="project-body" id="body"></div>
+
+    <p style="text-align:center;margin-top:40px">
+      <a href="architecture.html" class="back-link">← العودة لتاريخ العمارة</a>
+      &nbsp;·&nbsp;
+      <a href="index.html" class="back-link">المشاريع</a>
+    </p>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo"><div class="logo-box small">DE<br>ZN</div></div>
+      <p>© 2026 DEZN. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <script>
+  const ARCHITECTS = {
+    gaudi: {
+      title: 'أنطوني غاودي',
+      meta: 'إسبانيا · 1852 – 1926',
+      body: `
+        <p>أنطوني غاودي إي كورنيت (Antoni Gaudí) معماري كاتالوني يُعد من أبرز وجوه العمارة الحديثة وأحد رواد المدرسة العضوية.</p>
+        <p>اشتهر بأشكال مستوحاة من الطبيعة: منحنيات، أعمدة تشبه الأشجار، وأسقف كالكهوف. رفض الزوايا الحادة واعتمد على الهندسة المفرطة في التعقيد مع إحساس بالنحت.</p>
+        <p><strong>أبرز أعماله:</strong></p>
+        <ul>
+          <li>كاتدرائية ساغرادا فاميليا في برشلونة (ما زالت قيد الإنشاء)</li>
+          <li>حديقة غويل (Park Güell)</li>
+          <li>كاسا باتيو وكاسا ميلا</li>
+        </ul>
+        <p>دمج بين الحرفة التقليدية والتقنية المتقدمة في عصره، وأثر على أجيال من المعماريين الذين يبحثون عن علاقة أقوى بين المبنى والطبيعة.</p>
+      `
+    },
+    corbusier: {
+      title: 'لو كوربوزييه',
+      meta: 'سويسرا / فرنسا · 1887 – 1965',
+      body: `
+        <p>شارل-إدوار جانيريه-غري، المعروف بـ لو كوربوزييه، من أهم رواد العمارة الحديثة في القرن العشرين.</p>
+        <p>روّج لفكرة «البيت آلة للسكن» و«الشكل يتبع الوظيفة»، واستخدم الخرسانة المكشوفة والزجاج والصلب لخلق مساحات مفتوحة ومرنة.</p>
+        <p><strong>أبرز مساهماته:</strong></p>
+        <ul>
+          <li>الوحدات السكنية (Unité d'Habitation) في مارسيليا</li>
+          <li>فيلا سافوي (Villa Savoye)</li>
+          <li>نظام الموديولور للتناسب البشري</li>
+          <li>مخططات المدن الحديثة والتخطيط الحضري</li>
+        </ul>
+        <p>أثره يمتد إلى الإسكان الجماعي والمباني الإدارية حول العالم، وما زالت أفكاره تُناقش في سياق الاستدامة والكثافة الحضرية.</p>
+      `
+    },
+    wright: {
+      title: 'فرانك لويد رايت',
+      meta: 'الولايات المتحدة · 1867 – 1959',
+      body: `
+        <p>فرانك لويد رايت من أعظم المعماريين الأمريكيين، وصاحب مفهوم «العمارة العضوية» التي تندمج مع الموقع والطبيعة.</p>
+        <p>رفض التقليد الأوروبي الصريح وسعى لعمارة أمريكية أصيلة: خطوط أفقية، نوافذ أفقية، وخامات محلية، مع ربط الداخل بالخارج.</p>
+        <p><strong>أبرز أعماله:</strong></p>
+        <ul>
+          <li>منزل الشلال (Fallingwater) في بنسلفانيا</li>
+          <li>متحف غوغنهايم في نيويورك</li>
+          <li>منازل البراري (Prairie Houses)</li>
+          <li>طالييسين (Taliesin) كمدرسة ومقر عمل</li>
+        </ul>
+        <p>فلسفته ما زالت مصدر إلهام للمصممين الذين يربطون المبنى بالمناظر الطبيعية والمناخ المحلي.</p>
+      `
+    },
+    hadid: {
+      title: 'زها حديد',
+      meta: 'العراق / بريطانيا · 1950 – 2016',
+      body: `
+        <p>زها محمد حديد معمارية عراقية-بريطانية، أول امرأة تحصل على جائزة بريتزكر (2004)، ومن أبرز وجوه العمارة المعاصرة عالمياً.</p>
+        <p>اشتهرت بالأشكال الانسيابية والديناميكية المستوحاة من السوائل والحركة، وباستخدام البرمجيات المتقدمة لتصميم هياكل معقدة.</p>
+        <p><strong>أبرز أعمالها:</strong></p>
+        <ul>
+          <li>مركز حيدر علييف في باكو</li>
+          <li>مركز لندن للألعاب المائية (Olympic Aquatics Centre)</li>
+          <li>متحف MAXXI في روما</li>
+          <li>مبنى غالاكسي سوهو في بكين</li>
+        </ul>
+        <p>كسرت الصورة التقليدية للمبنى كصندوق، وفتحت الباب لجيل جديد من التصاميم الجريئة والتقنية العالية.</p>
+      `
+    },
+    fathy: {
+      title: 'حسن فتحي',
+      meta: 'مصر · 1900 – 1989',
+      body: `
+        <p>حسن فتحي معماري مصري رائد في «عمارة الفقراء» والاستدامة الاجتماعية والبيئية قبل أن تصبح هذه المصطلحات شائعة عالمياً.</p>
+        <p>دافع عن استخدام الخامات المحلية (الطوب اللبن) والتقنيات التقليدية الملائمة للمناخ، بدلاً من استيراد حلول غربية باهظة وغير مناسبة.</p>
+        <p><strong>أبرز أعماله وأفكاره:</strong></p>
+        <ul>
+          <li>قرية القرنة الجديدة قرب الأقصر</li>
+          <li>كتاب «عمارة الفقراء» (Architecture for the Poor)</li>
+          <li>الاهتمام بالتهوية الطبيعية والخصوصية والفناء</li>
+          <li>تمكين الحرفيين المحليين في عملية البناء</li>
+        </ul>
+        <p>إرثه حيّ في النقاش المعاصر حول العمارة المستدامة والهوية الثقافية في العالم العربي وأفريقيا.</p>
+      `
+    },
+    contemporary: {
+      title: 'جيل معاصر · العالم العربي',
+      meta: 'معماريون ومكاتب من المنطقة',
+      body: `
+        <p>الجيل المعاصر من المعماريين في العالم العربي يمزج بين الهوية المحلية (المناخ، الخصوصية، الزخرفة، الفناء) وتقنيات البناء الحديثة والبرمجيات.</p>
+        <p>من الأسماء والمكاتب التي تُذكر في هذا السياق: طلال العيسوي ومكاتب أخرى تعمل على مشاريع سكنية وتجارية وثقافية تربط التراث بالمعاصرة.</p>
+        <p><strong>اتجاهات بارزة:</strong></p>
+        <ul>
+          <li>استخدام المواد المحلية والمناخية (حجر، طوب، تظليل)</li>
+          <li>إعادة تفسير المشربية والفناء والواجهة المزدوجة</li>
+          <li>مشاريع عامة وثقافية تعكس السياق الحضري العربي</li>
+          <li>الاهتمام بالاستدامة والطاقة في المناخ الحار</li>
+        </ul>
+        <p>في DEZN نتابع هذا الحوار ونسعى لتقديم حلول معمارية تناسب السياق المصري والعربي مع جودة التصميم والتقديم البصري.</p>
+      `
+    }
+  };
+
+  const id = new URLSearchParams(location.search).get('id') || 'gaudi';
+  const a = ARCHITECTS[id] || ARCHITECTS.gaudi;
+
+  document.title = a.title + ' | DEZN';
+  document.getElementById('title').textContent = a.title;
+  document.getElementById('bcTitle').textContent = a.title;
+  document.getElementById('meta').textContent = a.meta;
+  document.getElementById('body').innerHTML = a.body;
+  </script>
+</body>
+</html>

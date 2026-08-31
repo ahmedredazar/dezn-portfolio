@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>خدمة | DEZN</title>
+  <link rel="stylesheet" href="./style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-box">DE<br>ZN</div>
+        <span class="logo-text">DEZN</span>
+      </a>
+      <nav class="nav">
+        <a href="index.html" class="active">المشاريع</a>
+        <a href="architecture.html">العمارة</a>
+        <a href="founder.html">أحمد رضا</a>
+        <a href="contact.html">تواصل</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html">الرئيسية</a>
+        <span>/</span>
+        <a href="index.html#services">الخدمات</a>
+        <span>/</span>
+        <span id="bcTitle">—</span>
+      </div>
+      <h1 id="title">—</h1>
+      <p class="meta" id="meta"></p>
+    </div>
+  </section>
+
+  <div class="project-layout article-page">
+    <div class="project-body" id="body"></div>
+
+    <div class="specs" id="specs" style="margin-top:32px"></div>
+
+    <p style="text-align:center;margin-top:40px">
+      <a href="index.html#services" class="back-link">← العودة للخدمات</a>
+      &nbsp;·&nbsp;
+      <a href="contact.html" class="back-link">اطلب الخدمة</a>
+    </p>
+  </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo"><div class="logo-box small">DE<br>ZN</div></div>
+      <p>© 2026 DEZN. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <script>
+  const SERVICES = {
+    architecture: {
+      title: 'تصميم معماري',
+      meta: 'من الفكرة إلى المخططات التنفيذية',
+      body: `
+        <p>نقدم خدمة التصميم المعماري المتكامل للمشاريع السكنية والتجارية والعامة، من المفهوم الأولي حتى المخططات التنفيذية القابلة للتنفيذ.</p>
+        <p>نركز على الوظيفة، الحركة، الإضاءة الطبيعية، والتكامل مع الموقع والمناخ، مع الحفاظ على جمالية واضحة وهوية معمارية.</p>
+        <p><strong>ما يشمله العمل:</strong></p>
+        <ul>
+          <li>دراسة الموقع والبرنامج الوظيفي</li>
+          <li>مخططات أولية ومفاهيم تصميمية</li>
+          <li>مخططات معمارية تفصيلية (مساقط، واجهات، قطاعات)</li>
+          <li>تنسيق مع التخصصات الإنشائية والكهربائية والميكانيكية عند الحاجة</li>
+          <li>تقديم بصري (رسومات ورندر) لدعم القرار</li>
+        </ul>
+        <p>الأدوات: AutoCAD · Revit · SketchUp وغيرها حسب طبيعة المشروع.</p>
+      `,
+      specs: [
+        ['النوع', 'سكني / تجاري / عام'],
+        ['المخرجات', 'مخططات + تصور'],
+        ['الأدوات', 'Revit · AutoCAD']
+      ]
+    },
+    interior: {
+      title: 'تصميم داخلي',
+      meta: 'فراغات متناسقة · خامات · إضاءة · أثاث',
+      body: `
+        <p>تصميم داخلي يربط الوظيفة بالجمال: توزيع الفراغات، اختيار الخامات والألوان، الإضاءة، والأثاث بما يناسب أسلوب حياة العميل وطبيعة المكان.</p>
+        <p>نهتم بالتفاصيل التنفيذية حتى يصبح التصميم قابلاً للتنفيذ دون مفاجآت في الموقع.</p>
+        <p><strong>ما يشمله العمل:</strong></p>
+        <ul>
+          <li>تحليل الاحتياجات وأسلوب الاستخدام</li>
+          <li>مخططات توزيع الأثاث والحركة</li>
+          <li>لوحة خامات وألوان (Mood Board)</li>
+          <li>تفاصيل تنفيذية للأسقف والجدران والأرضيات</li>
+          <li>اقتراحات أثاث وإضاءة وتصور ثلاثي الأبعاد</li>
+        </ul>
+        <p>مناسب للشقق، الفلل، المكاتب، والمساحات التجارية الصغيرة.</p>
+      `,
+      specs: [
+        ['النوع', 'سكني / مكتبي'],
+        ['المخرجات', 'مخططات + Mood Board'],
+        ['الأدوات', '3ds Max · AutoCAD']
+      ]
+    },
+    visualization: {
+      title: 'تصور ثلاثي الأبعاد',
+      meta: 'رندر ومرئيات معمارية عالية الجودة',
+      body: `
+        <p>رندر ومرئيات معمارية تساعد العميل والمستثمر على رؤية المشروع قبل التنفيذ: إضاءة واقعية، خامات، ومشاهد داخلية وخارجية.</p>
+        <p>نستخدم أدوات متقدمة لإخراج صور وفيديوهات قصيرة تدعم العروض والتسويق والموافقات.</p>
+        <p><strong>ما يشمله العمل:</strong></p>
+        <ul>
+          <li>نمذجة ثلاثية الأبعاد من المخططات</li>
+          <li>رندر خارجي وداخلي بجودة عالية</li>
+          <li>مشاهد ليلية ونهارية حسب الطلب</li>
+          <li>جولات افتراضية أو فيديو قصير (اختياري)</li>
+          <li>تعديلات على الإضاءة والخامات حسب ملاحظات العميل</li>
+        </ul>
+        <p>الأدوات: 3ds Max · V-Ray / Corona · Adobe Suite.</p>
+      `,
+      specs: [
+        ['النوع', 'رندر / فيديو'],
+        ['المخرجات', 'صور عالية الدقة'],
+        ['الأدوات', '3ds Max · V-Ray']
+      ]
+    }
+  };
+
+  const id = new URLSearchParams(location.search).get('id') || 'architecture';
+  const s = SERVICES[id] || SERVICES.architecture;
+
+  document.title = s.title + ' | DEZN';
+  document.getElementById('title').textContent = s.title;
+  document.getElementById('bcTitle').textContent = s.title;
+  document.getElementById('meta').textContent = s.meta;
+  document.getElementById('body').innerHTML = s.body;
+  document.getElementById('specs').innerHTML = s.specs.map(([k,v]) =>
+    `<div class="spec-item"><strong>${k}</strong><span>${v}</span></div>`
+  ).join('');
+  </script>
+</body>
+</html>

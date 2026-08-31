@@ -616,14 +616,16 @@ img { max-width: 100%; display: block; }
   gap: 20px;
 }
 .service-card {
+  display: block;
   background: #0a0a0a;
   border: 1px solid #1a1a1a;
   border-radius: 10px;
   padding: 28px 22px;
   text-align: center;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, transform 0.25s;
+  color: inherit;
 }
-.service-card:hover { border-color: #333; }
+.service-card:hover { border-color: #333; transform: translateY(-3px); }
 .service-card h3 {
   font-size: 1.15rem;
   margin-bottom: 10px;
@@ -682,11 +684,15 @@ img { max-width: 100%; display: block; }
   margin-top: 12px;
 }
 .arch-card {
+  display: block;
   background: #0a0a0a;
   border: 1px solid #1a1a1a;
   border-radius: 10px;
   padding: 20px 18px;
+  color: inherit;
+  transition: border-color 0.25s, transform 0.25s;
 }
+.arch-card:hover { border-color: #444; transform: translateY(-3px); }
 .arch-card h3 { font-size: 1.1rem; margin-bottom: 4px; }
 .arch-meta { font-size: 0.8rem; color: #666; margin-bottom: 10px; }
 .arch-card p:last-child { color: #999; font-size: 0.9rem; line-height: 1.65; margin: 0; }

@@ -6,8 +6,13 @@
    - index.html
    - project.html
    - contact.html
+   - architecture.html
+   - architect.html
+   - service.html
+   - founder.html
    - style.css
    - script.js
+   - ahmed-reda.jpg
    - .nojekyll
 
 2. من الريبو على GitHub:
@@ -33,7 +38,12 @@ REPO/
   index.html
   project.html
   contact.html
+  architecture.html
+  architect.html
+  service.html
+  founder.html
   style.css
   script.js
+  ahmed-reda.jpg
   .nojekyll
 ```
