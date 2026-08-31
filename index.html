@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DEZN | مصمم معماري</title>
+  <meta name="description" content="DEZN - مصمم معماري. فن جميلاً.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <div class="logo-box">DE<br>ZN</div>
+        <span class="logo-text">DEZN</span>
+      </a>
+      
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="ابحث في المشاريع..." autocomplete="off">
+        <button id="searchBtn" aria-label="بحث">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8"></circle>
+            <path d="m21 21-4.35-4.35"></path>
+          </svg>
+        </button>
+      </div>
+
+      <nav class="nav">
+        <a href="index.html" class="active">المشاريع</a>
+        <a href="#about">عني</a>
+        <a href="#contact">تواصل</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-logo">
+        <div class="logo-box large">DE<br>ZN</div>
+      </div>
+      <h1>DEZN</h1>
+      <p class="tagline">فن جميلاً.</p>
+      <p class="subtitle">مصمم معماري · تصميم داخلي · تخطيط</p>
+    </div>
+  </section>
+
+  <section class="filters-section">
+    <div class="container">
+      <div class="filters">
+        <button class="filter-btn active" data-filter="all">الكل</button>
+        <button class="filter-btn" data-filter="residential">سكني</button>
+        <button class="filter-btn" data-filter="commercial">تجاري</button>
+        <button class="filter-btn" data-filter="interior">داخلي</button>
+        <button class="filter-btn" data-filter="public">عام / ثقافي</button>
+        <button class="filter-btn" data-filter="landscape">منتجعات</button>
+      </div>
+      <p id="resultsInfo" class="results-info"></p>
+    </div>
+  </section>
+
+  <section class="projects">
+    <div class="container">
+      <div class="projects-grid" id="projectsGrid">
+
+        <a href="project.html" class="project-card" data-category="residential" data-tags="فيلا سكنية حديثة منزل">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=800&h=600&fit=crop" alt="فيلا سكنية حديثة" loading="lazy">
+          </div>
+          <div class="project-info">
+            <h3>فيلا سكنية حديثة</h3>
+            <span>Residential</span>
+          </div>
+        </a>
+
+        <a href="project.html" class="project-card" data-category="residential" data-tags="مجمع سكني فاخر شقق">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop" alt="مجمع سكني" loading="lazy">
+          </div>
+          <div class="project-info">
+            <h3>مجمع سكني فاخر</h3>
+            <span>Multi-family</span>
+          </div>
+        </a>
+
+        <a href="project.html" class="project-card" data-category="interior" data-tags="تصميم داخلي شقة">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop" alt="تصميم داخلي" loading="lazy">
+          </div>
+          <div class="project-info">
+            <h3>تصميم داخلي - شقة</h3>
+            <span>Interior Design</span>
+          </div>
+        </a>
+
+        <a href="project.html" class="project-card" data-category="commercial" data-tags="مبنى إداري مكتب">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&h=600&fit=crop" alt="مبنى إداري" loading="lazy">
+          </div>
+          <div class="project-info">
+            <h3>مبنى إداري حديث</h3>
+            <span>Commercial</span>
+          </div>
+        </a>
+
+        <a href="project.html" class="project-card" data-category="public" data-tags="مركز ثقافي متحف">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800&h=600&fit=crop" alt="متحف ثقافي" loading="lazy">
+          </div>
+          <div class="project-info">
+            <h3>مركز ثقافي ومتحف</h3>
+            <span>Cultural</span>
+          </div>
+        </a>
+
+        <a href="project.html" class="project-card" data-category="landscape" data-tags="منتجع سياحي">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop" alt="منتجع سياحي" loading="lazy">
+          </div>
+          <div class="project-info">
+            <h3>منتجع سياحي</h3>
+            <span>Hospitality</span>
+          </div>
+        </a>
+
+        <a href="project.html" class="project-card" data-category="residential" data-tags="بيت صيفي">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop" alt="بيت صيفي" loading="lazy">
+          </div>
+          <div class="project-info">
+            <h3>بيت صيفي على البحر</h3>
+            <span>Residential</span>
+          </div>
+        </a>
+
+        <a href="project.html" class="project-card" data-category="commercial" data-tags="مول تجاري">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=600&fit=crop" alt="مول تجاري" loading="lazy">
+          </div>
+          <div class="project-info">
+            <h3>مركز تسوق حديث</h3>
+            <span>Retail</span>
+          </div>
+        </a>
+
+        <a href="project.html" class="project-card" data-category="interior" data-tags="مكتب تصميم">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800&h=600&fit=crop" alt="مكتب حديث" loading="lazy">
+          </div>
+          <div class="project-info">
+            <h3>تصميم مكتب حديث</h3>
+            <span>Workspace</span>
+          </div>
+        </a>
+
+      </div>
+
+      <div id="noResults" class="no-results" style="display: none;">
+        <p>مفيش نتائج مطابقة لبحثك</p>
+        <button onclick="resetAll()">عرض كل المشاريع</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="suggestions" id="suggestionsSection">
+    <div class="container">
+      <h2 class="section-title">اقتراحات قد تعجبك</h2>
+      <div class="suggestions-grid" id="suggestionsGrid"></div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="logo-box medium">DE<br>ZN</div>
+        <h2>DEZN</h2>
+        <p class="tagline">فن جميلاً.</p>
+        <p>
+          مصمم معماري متخصص في المشاريع السكنية والتجارية والتصميم الداخلي.
+          بركز على الحلول الوظيفية مع الحفاظ على الجمال والاستدامة.
+        </p>
+        <p class="tools">AutoCAD · Revit · 3ds Max · SketchUp · Adobe Suite</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>تواصل معنا</h2>
+      <p>للاستفسارات والمشاريع الجديدة</p>
+      <div class="socials">
+        <a href="https://www.facebook.com/Dezn1/" target="_blank" rel="noopener">Facebook</a>
+        <a href="#" target="_blank">Instagram</a>
+        <a href="#" target="_blank">Behance</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">
+        <div class="logo-box small">DE<br>ZN</div>
+      </div>
+      <p>© 2026 DEZN. جميع الحقوق محفوظة.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
