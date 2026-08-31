@@ -1,14 +1,50 @@
 // ===== Data for suggestions =====
 const allProjects = [
-  { id: "villa", title: "فيلا سكنية حديثة", category: "residential", img: "https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=400&h=400&fit=crop" },
-  { id: "complex", title: "مجمع سكني فاخر", category: "residential", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=400&fit=crop" },
-  { id: "apartment", title: "تصميم داخلي - شقة", category: "interior", img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=400&fit=crop" },
-  { id: "office", title: "مبنى إداري حديث", category: "commercial", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=400&fit=crop" },
-  { id: "museum", title: "مركز ثقافي ومتحف", category: "public", img: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&h=400&fit=crop" },
-  { id: "resort", title: "منتجع سياحي", category: "landscape", img: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400&h=400&fit=crop" },
-  { id: "beach", title: "بيت صيفي على البحر", category: "residential", img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=400&fit=crop" },
-  { id: "mall", title: "مركز تسوق حديث", category: "commercial", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=400&fit=crop" },
-  { id: "workspace", title: "تصميم مكتب حديث", category: "interior", img: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=400&h=400&fit=crop" }
+  {
+    title: "فيلا سكنية حديثة",
+    category: "residential",
+    img: "https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=400&h=400&fit=crop"
+  },
+  {
+    title: "مجمع سكني فاخر",
+    category: "residential",
+    img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=400&fit=crop"
+  },
+  {
+    title: "تصميم داخلي - شقة",
+    category: "interior",
+    img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=400&fit=crop"
+  },
+  {
+    title: "مبنى إداري حديث",
+    category: "commercial",
+    img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=400&fit=crop"
+  },
+  {
+    title: "مركز ثقافي ومتحف",
+    category: "public",
+    img: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&h=400&fit=crop"
+  },
+  {
+    title: "منتجع سياحي",
+    category: "landscape",
+    img: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400&h=400&fit=crop"
+  },
+  {
+    title: "بيت صيفي على البحر",
+    category: "residential",
+    img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=400&fit=crop"
+  },
+  {
+    title: "مركز تسوق حديث",
+    category: "commercial",
+    img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=400&fit=crop"
+  },
+  {
+    title: "تصميم مكتب حديث",
+    category: "interior",
+    img: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=400&h=400&fit=crop"
+  }
 ];
 
 // ===== Elements =====
@@ -117,7 +153,7 @@ function updateSuggestions() {
   }
 
   suggestionsGrid.innerHTML = suggested.map(p => `
-    <a href="project.html?id=${p.id || 'villa'}" class="suggestion-card">
+    <a href="project.html" class="suggestion-card">
       <img src="${p.img}" alt="${p.title}" loading="lazy">
       <p>${p.title}</p>
     </a>
