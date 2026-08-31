@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>معماري | DEZN</title>
   <link rel="stylesheet" href="./style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="./i18n.js"></script>
 </head>
 <body>
   <header class="header">
@@ -15,8 +16,8 @@
         <span class="logo-text">DEZN</span>
       </a>
       <div class="search-box">
-        <input type="text" id="searchInput" placeholder="ابحث في الموقع..." autocomplete="off">
-        <button id="searchBtn" aria-label="بحث" type="button">
+        <input type="text" id="searchInput" placeholder="ابحث في الموقع..." data-i18n-placeholder="search.placeholder" autocomplete="off">
+        <button id="searchBtn" aria-label="بحث" data-i18n-aria="search.aria" type="button">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"></circle>
             <path d="m21 21-4.35-4.35"></path>
@@ -24,25 +25,27 @@
         </button>
       </div>
       <nav class="nav">
-        <a href="index.html">المشاريع</a>
-        <a href="architecture.html" class="active">العمارة</a>
-        <a href="founder.html">أحمد رضا</a>
-        <a href="contact.html">تواصل</a>
+        <a href="index.html" data-i18n="nav.projects">المشاريع</a>
+        <a href="architecture.html" class="active" data-i18n="nav.architecture">العمارة</a>
+        <a href="founder.html" data-i18n="nav.founder">أحمد رضا</a>
+        <a href="contact.html" data-i18n="nav.contact">تواصل</a>
       </nav>
+            <button type="button" class="lang-toggle" data-lang-next="en" aria-label="Switch language">English</button>
+
     </div>
   </header>
 
   <section class="page-hero">
     <div class="container">
       <div class="breadcrumb">
-        <a href="architecture.html">العمارة</a>
+        <a href="architecture.html" data-i18n="nav.architecture">العمارة</a>
         <span>/</span>
         <span id="bcTitle">—</span>
       </div>
       <h1 id="title">—</h1>
       <p class="meta" id="meta"></p>
       <p style="margin-top:18px">
-        <a href="#works" class="btn-works" id="worksBtn">أعماله التاريخية ←</a>
+        <a href="#works" class="btn-works" id="worksBtn" data-i18n="works.btn">أعماله التاريخية ←</a>
       </p>
     </div>
   </section>
@@ -70,7 +73,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-logo"><div class="logo-box small">DE<br>ZN</div></div>
-      <p>© 2026 DEZN. جميع الحقوق محفوظة.</p>
+      <p><span data-i18n="footer">© 2026 DEZN. جميع الحقوق محفوظة.</span></p>
     </div>
   </footer>
 
@@ -318,29 +321,108 @@
     }
   };
 
-  const id = new URLSearchParams(location.search).get('id') || 'gaudi';
-  const a = ARCHITECTS[id] || ARCHITECTS.gaudi;
 
-  document.title = a.title + ' | DEZN';
-  document.getElementById('title').textContent = a.title;
-  document.getElementById('bcTitle').textContent = a.title;
-  document.getElementById('meta').textContent = a.meta;
-  document.getElementById('body').innerHTML = a.body;
-  document.getElementById('worksHeading').textContent = 'أعمال تاريخية — ' + a.title;
-  document.getElementById('worksIntro').textContent = a.worksIntro || '';
+  const ARCHITECTS_EN = {
+    gaudi: {
+      title: 'Antoni Gaudí',
+      meta: 'Spain · 1852 – 1926',
+      body: `<p>Antoni Gaudí i Cornet was a Catalan architect and a leading figure of modern architecture and organic design.</p><p>He is known for nature-inspired forms: curves, tree-like columns, and cave-like roofs. He rejected sharp angles in favor of complex geometry with a sculptural feel.</p><p>He blended traditional craft with advanced technique, influencing generations seeking a stronger bond between building and nature.</p>`,
+      worksIntro: 'Key buildings that shaped Gaudí’s legacy in Barcelona and beyond.'
+    },
+    corbusier: {
+      title: 'Le Corbusier',
+      meta: 'Switzerland / France · 1887 – 1965',
+      body: `<p>Charles-Édouard Jeanneret-Gris, known as Le Corbusier, was one of the most important pioneers of modern architecture in the 20th century.</p><p>He promoted “the house is a machine for living” and “form follows function,” using exposed concrete, glass, and steel for open, flexible space.</p>`,
+      worksIntro: 'Essential works that defined modern architecture in the 20th century.'
+    },
+    wright: {
+      title: 'Frank Lloyd Wright',
+      meta: 'United States · 1867 – 1959',
+      body: `<p>Frank Lloyd Wright was among America’s greatest architects and the author of “organic architecture” integrated with site and nature.</p><p>He sought an American architecture: horizontal lines, ribbon windows, local materials, and a strong indoor–outdoor link.</p>`,
+      worksIntro: 'Houses and museums that embodied integration with nature and site.'
+    },
+    hadid: {
+      title: 'Zaha Hadid',
+      meta: 'Iraq / Britain · 1950 – 2016',
+      body: `<p>Zaha Hadid was an Iraqi-British architect, the first woman to win the Pritzker Prize (2004), and a leading face of contemporary architecture worldwide.</p><p>She was known for fluid, dynamic forms and advanced software for complex structures.</p>`,
+      worksIntro: 'Bold projects that made her name synonymous with contemporary fluid architecture.'
+    },
+    fathy: {
+      title: 'Hassan Fathy',
+      meta: 'Egypt · 1900 – 1989',
+      body: `<p>Hassan Fathy was an Egyptian architect and pioneer of “architecture for the poor” and social and environmental sustainability long before the terms were widespread.</p><p>He advocated local materials (mud brick) and climate-appropriate traditional techniques instead of costly imported Western solutions.</p>`,
+      worksIntro: 'Projects and ideas that linked architecture to people, local material, and climate.'
+    },
+    contemporary: {
+      title: 'Contemporary generation · Arab world',
+      meta: 'Architects and practices in the region',
+      body: `<p>Contemporary architects in the Arab world blend local identity (climate, privacy, ornament, courtyard) with modern construction and software.</p><p>At DEZN we follow this dialogue and aim for solutions suited to the Egyptian and Arab context with strong design and visual presentation.</p>`,
+      worksIntro: 'Directions and projects that represent the dialogue of identity and technology in the region.'
+    }
+  };
 
-  document.getElementById('worksGrid').innerHTML = (a.works || []).map(w => `
-    <a href="work.html?id=${w.id}" class="work-card">
-      <div class="work-img">
-        <img src="${w.img}" alt="${w.title}" loading="lazy">
-      </div>
+  const WORKS_EN_TITLES = {
+    'gaudi-sagrada': 'Sagrada Família',
+    'gaudi-guell': 'Park Güell',
+    'gaudi-batllo': 'Casa Batlló',
+    'gaudi-mila': 'Casa Milà (La Pedrera)',
+    'corbusier-savoye': 'Villa Savoye',
+    'corbusier-unite': 'Unité d\'Habitation · Marseille',
+    'corbusier-ronchamp': 'Notre-Dame du Haut',
+    'corbusier-chandigarh': 'Chandigarh Complex',
+    'wright-fallingwater': 'Fallingwater',
+    'wright-guggenheim': 'Guggenheim Museum',
+    'wright-prairie': 'Prairie Houses',
+    'wright-taliesin': 'Taliesin',
+    'hadid-aliyev': 'Heydar Aliyev Center',
+    'hadid-aquatics': 'London Aquatics Centre',
+    'hadid-maxxi': 'MAXXI Museum',
+    'hadid-soho': 'Galaxy Soho · Beijing',
+    'fathy-gourna': 'New Gourna Village',
+    'fathy-book': 'Architecture for the Poor (book)',
+    'fathy-dar': 'Dar al-Islam · New Mexico',
+    'fathy-housing': 'Housing & mosque projects',
+    'contemporary-residential': 'Contemporary residential projects',
+    'contemporary-cultural': 'Cultural & public buildings',
+    'contemporary-sustain': 'Sustainability & climate',
+    'contemporary-hybrid': 'Heritage and technology'
+  };
+
+  function renderArchitect() {
+    const lang = (window.DEZN_I18N && window.DEZN_I18N.getLang()) || 'ar';
+    const base = ARCHITECTS[id] || ARCHITECTS.gaudi;
+    const en = ARCHITECTS_EN[id] || ARCHITECTS_EN.gaudi;
+    const a = lang === 'en' ? Object.assign({}, base, {
+      title: en.title, meta: en.meta, body: en.body, worksIntro: en.worksIntro
+    }) : base;
+
+    document.title = a.title + ' | DEZN';
+    document.getElementById('title').textContent = a.title;
+    document.getElementById('bcTitle').textContent = a.title;
+    document.getElementById('meta').textContent = a.meta;
+    document.getElementById('body').innerHTML = a.body;
+    const wh = document.getElementById('worksHeading');
+    const prefix = (window.DEZN_I18N && window.DEZN_I18N.t('works.section')) || 'أعمال تاريخية';
+    wh.textContent = prefix + ' — ' + a.title;
+    document.getElementById('worksIntro').textContent = a.worksIntro || '';
+
+    document.getElementById('worksGrid').innerHTML = (base.works || []).map(w => {
+      const title = lang === 'en' && WORKS_EN_TITLES[w.id] ? WORKS_EN_TITLES[w.id] : w.title;
+      const desc = lang === 'en' ? (w.descEn || w.desc) : w.desc;
+      return `<a href="work.html?id=${w.id}" class="work-card">
+      <div class="work-img"><img src="${w.img}" alt="${title}" loading="lazy"></div>
       <div class="work-info">
-        <h3>${w.title}</h3>
+        <h3>${title}</h3>
         <span class="work-year">${w.year}</span>
-        <p>${w.desc}</p>
+        <p>${desc}</p>
       </div>
-    </a>
-  `).join('');
+    </a>`;
+    }).join('');
+  }
+
+  const id = new URLSearchParams(location.search).get('id') || 'gaudi';
+  renderArchitect();
+  window.addEventListener('dezn-lang', renderArchitect);
   </script>
   <script src="./script.js"></script>
 </body>

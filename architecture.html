@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>تاريخ العمارة | DEZN</title>
   <link rel="stylesheet" href="./style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="./i18n.js"></script>
 </head>
 <body>
   <header class="header">
@@ -15,8 +16,8 @@
         <span class="logo-text">DEZN</span>
       </a>
             <div class="search-box">
-        <input type="text" id="searchInput" placeholder="ابحث في الموقع..." autocomplete="off">
-        <button id="searchBtn" aria-label="بحث" type="button">
+        <input type="text" id="searchInput" placeholder="ابحث في الموقع..." data-i18n-placeholder="search.placeholder" autocomplete="off">
+        <button id="searchBtn" aria-label="بحث" data-i18n-aria="search.aria" type="button">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"></circle>
             <path d="m21 21-4.35-4.35"></path>
@@ -24,114 +25,116 @@
         </button>
       </div>
 <nav class="nav">
-        <a href="index.html">المشاريع</a>
-        <a href="architecture.html" class="active">العمارة</a>
-        <a href="founder.html">أحمد رضا</a>
-        <a href="contact.html">تواصل</a>
+        <a href="index.html" data-i18n="nav.projects">المشاريع</a>
+        <a href="architecture.html" class="active" data-i18n="nav.architecture">العمارة</a>
+        <a href="founder.html" data-i18n="nav.founder">أحمد رضا</a>
+        <a href="contact.html" data-i18n="nav.contact">تواصل</a>
       </nav>
+            <button type="button" class="lang-toggle" data-lang-next="en" aria-label="Switch language">English</button>
+
     </div>
   </header>
 
   <section class="page-hero">
     <div class="container">
-      <h1>المجال المعماري</h1>
-      <p class="meta">نبذة تاريخية · معماريون أثّروا في العالم</p>
+      <h1 data-i18n="arch.hero">المجال المعماري</h1>
+      <p class="meta" data-i18n="arch.meta">نبذة تاريخية · معماريون أثّروا في العالم</p>
     </div>
   </section>
 
   <article class="project-layout article-page">
-    <h2 class="article-h">ما هي العمارة؟</h2>
+    <h2 class="article-h" data-i18n="arch.what">ما هي العمارة؟</h2>
     <div class="project-body">
-      <p>
+      <p data-i18n="arch.what.body">
         العمارة هي فن وعلم تصميم المباني والفراغات التي يعيش ويعمل فيها الإنسان.
         تجمع بين الجمال، الوظيفة، الإنشاء، والبيئة — من المسكن البسيط إلى المدن الكاملة.
       </p>
     </div>
 
-    <h2 class="article-h">محطات تاريخية</h2>
+    <h2 class="article-h" data-i18n="arch.timeline">محطات تاريخية</h2>
     <div class="timeline">
       <div class="tl-item">
-        <strong>مصر القديمة</strong>
-        <p>الأهرامات والمعابد — هندسة دقيقة، محاذاة فلكية، ورمزية دينية معمارية ما زالت تُدرَّس حتى اليوم.</p>
+        <strong data-i18n="arch.t1.t">مصر القديمة</strong>
+        <p data-i18n="arch.t1.b">الأهرامات والمعابد — هندسة دقيقة، محاذاة فلكية، ورمزية دينية معمارية ما زالت تُدرَّس حتى اليوم.</p>
       </div>
       <div class="tl-item">
-        <strong>اليونان والرومان</strong>
-        <p>النظام الكلاسيكي (دوري، أيوني، كورنثي)، القوس والقبة، والمدرجات والمباني العامة كقلب المدينة.</p>
+        <strong data-i18n="arch.t2.t">اليونان والرومان</strong>
+        <p data-i18n="arch.t2.b">النظام الكلاسيكي (دوري، أيوني، كورنثي)، القوس والقبة، والمدرجات والمباني العامة كقلب المدينة.</p>
       </div>
       <div class="tl-item">
-        <strong>العمارة الإسلامية</strong>
-        <p>المساجد والمدارس والأسبلة — القبة، العقد، المشربية، والزخرفة الهندسية مع احترام المناخ والخصوصية.</p>
+        <strong data-i18n="arch.t3.t">العمارة الإسلامية</strong>
+        <p data-i18n="arch.t3.b">المساجد والمدارس والأسبلة — القبة، العقد، المشربية، والزخرفة الهندسية مع احترام المناخ والخصوصية.</p>
       </div>
       <div class="tl-item">
-        <strong>النهضة والأوروبية</strong>
-        <p>إحياء الكلاسيكية، التناسب، والمنظور — من كاتدرائيات القوطي إلى قصور النهضة.</p>
+        <strong data-i18n="arch.t4.t">النهضة والأوروبية</strong>
+        <p data-i18n="arch.t4.b">إحياء الكلاسيكية، التناسب، والمنظور — من كاتدرائيات القوطي إلى قصور النهضة.</p>
       </div>
       <div class="tl-item">
-        <strong>الحداثة (القرن 20)</strong>
-        <p>«الشكل يتبع الوظيفة»، الخرسانة والزجاج والصلب، والمساكن والمكاتب كمنتجات صناعية قابلة للتكرار.</p>
+        <strong data-i18n="arch.t5.t">الحداثة (القرن 20)</strong>
+        <p data-i18n="arch.t5.b">«الشكل يتبع الوظيفة»، الخرسانة والزجاج والصلب، والمساكن والمكاتب كمنتجات صناعية قابلة للتكرار.</p>
       </div>
       <div class="tl-item">
-        <strong>المعاصرة والاستدامة</strong>
-        <p>كفاءة الطاقة، المواد المحلية، التصميم البيئي، والدمج بين التقنية والهوية الثقافية.</p>
+        <strong data-i18n="arch.t6.t">المعاصرة والاستدامة</strong>
+        <p data-i18n="arch.t6.b">كفاءة الطاقة، المواد المحلية، التصميم البيئي، والدمج بين التقنية والهوية الثقافية.</p>
       </div>
     </div>
 
-    <h2 class="article-h">معماريون مشهورون</h2>
+    <h2 class="article-h" data-i18n="arch.famous">معماريون مشهورون</h2>
     <div class="arch-grid">
       <a href="architect.html?id=gaudi" class="arch-card">
-        <h3>أنطوني غاودي</h3>
-        <p class="arch-meta">إسبانيا</p>
-        <p>أشكال عضوية مستوحاة من الطبيعة — ساغرادا فاميليا وحديقة غويل في برشلونة.</p>
+        <h3 data-i18n-a="gaudi">أنطوني غاودي</h3>
+        <p class="arch-meta" data-i18n="arch.gaudi.meta">إسبانيا</p>
+        <p data-i18n="arch.gaudi.d">أشكال عضوية مستوحاة من الطبيعة — ساغرادا فاميليا وحديقة غويل في برشلونة.</p>
       </a>
       <a href="architect.html?id=corbusier" class="arch-card">
-        <h3>لو كوربوزييه</h3>
-        <p class="arch-meta">سويسرا / فرنسا</p>
-        <p>رواد الحداثة: الوحدات السكنية، «البيت آلة للسكن»، والموديولور كنظام تناسبي.</p>
+        <h3 data-i18n-a="corbusier">لو كوربوزييه</h3>
+        <p class="arch-meta" data-i18n="arch.corb.meta">سويسرا / فرنسا</p>
+        <p data-i18n="arch.corb.d">رواد الحداثة: الوحدات السكنية، «البيت آلة للسكن»، والموديولور كنظام تناسبي.</p>
       </a>
       <a href="architect.html?id=wright" class="arch-card">
-        <h3>فرانك لويد رايت</h3>
-        <p class="arch-meta">أمريكا</p>
-        <p>العمارة العضوية والاندماج مع الموقع — منزل الشلال (Fallingwater) مثالاً.</p>
+        <h3 data-i18n-a="wright">فرانك لويد رايت</h3>
+        <p class="arch-meta" data-i18n="arch.wright.meta">أمريكا</p>
+        <p data-i18n="arch.wright.d">العمارة العضوية والاندماج مع الموقع — منزل الشلال (Fallingwater) مثالاً.</p>
       </a>
       <a href="architect.html?id=hadid" class="arch-card">
-        <h3>زها حديد</h3>
-        <p class="arch-meta">عراق / بريطانيا</p>
-        <p>أشكال انسيابية وجريئة — من أبرز وجوه العمارة المعاصرة عالمياً.</p>
+        <h3 data-i18n-a="hadid">زها حديد</h3>
+        <p class="arch-meta" data-i18n="arch.hadid.meta">عراق / بريطانيا</p>
+        <p data-i18n="arch.hadid.d">أشكال انسيابية وجريئة — من أبرز وجوه العمارة المعاصرة عالمياً.</p>
       </a>
       <a href="architect.html?id=fathy" class="arch-card">
-        <h3>حسن فتحي</h3>
-        <p class="arch-meta">مصر</p>
-        <p>عمارة الفقراء والخامة المحلية (الطوب اللبن) — قرية القرنة الجديدة وإرث الاستدامة الاجتماعية.</p>
+        <h3 data-i18n-a="fathy">حسن فتحي</h3>
+        <p class="arch-meta" data-i18n="arch.fathy.meta">مصر</p>
+        <p data-i18n="arch.fathy.d">عمارة الفقراء والخامة المحلية (الطوب اللبن) — قرية القرنة الجديدة وإرث الاستدامة الاجتماعية.</p>
       </a>
       <a href="architect.html?id=contemporary" class="arch-card">
-        <h3>طلال العيسوي / جيل معاصر</h3>
-        <p class="arch-meta">العالم العربي</p>
-        <p>مشاريع تمزج الهوية المحلية مع تقنيات البناء الحديثة في المنطقة العربية.</p>
+        <h3 data-i18n-a="contemporary">طلال العيسوي / جيل معاصر</h3>
+        <p class="arch-meta" data-i18n="arch.cont.meta">العالم العربي</p>
+        <p data-i18n="arch.cont.d">مشاريع تمزج الهوية المحلية مع تقنيات البناء الحديثة في المنطقة العربية.</p>
       </a>
     </div>
 
-    <h2 class="article-h">لماذا يهم المصمم المعماري؟</h2>
+    <h2 class="article-h" data-i18n="arch.why">لماذا يهم المصمم المعماري؟</h2>
     <div class="project-body">
-      <p>
+      <p data-i18n="arch.why.p1">
         المعماري لا يرسم شكلاً فقط: يرتّب حركة الناس، الضوء، التهوية، التكلفة، والسلامة.
         من الفكرة الأولى حتى التفاصيل التنفيذية، دوره يربط حلم العميل بواقع قابل للبناء.
       </p>
-      <p>
+      <p data-i18n="arch.why.p2">
         في DEZN نشتغل على هذا المسار: سكني، تجاري، داخلي، وتصور ثلاثي — مع احترام الوظيفة والجمال.
       </p>
     </div>
 
     <p style="text-align:center;margin-top:40px">
-      <a href="index.html" class="back-link">← العودة للمشاريع</a>
+      <a href="index.html" class="back-link"><span data-i18n="arch.back">← العودة للمشاريع</span></a>
       &nbsp;·&nbsp;
-      <a href="founder.html" class="back-link">تعرّف على أحمد رضا</a>
+      <a href="founder.html" class="back-link"><span data-i18n="arch.meet">تعرّف على أحمد رضا</span></a>
     </p>
   </article>
 
   <footer class="footer">
     <div class="container">
       <div class="footer-logo"><div class="logo-box small">DE<br>ZN</div></div>
-      <p>© 2026 DEZN. جميع الحقوق محفوظة.</p>
+      <p><span data-i18n="footer">© 2026 DEZN. جميع الحقوق محفوظة.</span></p>
     </div>
   </footer>
   <script src="./script.js"></script>

@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>المهندس أحمد رضا | DEZN</title>
   <link rel="stylesheet" href="./style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="./i18n.js"></script>
 </head>
 <body>
   <header class="header">
@@ -15,8 +16,8 @@
         <span class="logo-text">DEZN</span>
       </a>
             <div class="search-box">
-        <input type="text" id="searchInput" placeholder="ابحث في الموقع..." autocomplete="off">
-        <button id="searchBtn" aria-label="بحث" type="button">
+        <input type="text" id="searchInput" placeholder="ابحث في الموقع..." data-i18n-placeholder="search.placeholder" autocomplete="off">
+        <button id="searchBtn" aria-label="بحث" data-i18n-aria="search.aria" type="button">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"></circle>
             <path d="m21 21-4.35-4.35"></path>
@@ -24,43 +25,44 @@
         </button>
       </div>
 <nav class="nav">
-        <a href="index.html">المشاريع</a>
-        <a href="architecture.html">العمارة</a>
-        <a href="founder.html" class="active">أحمد رضا</a>
-        <a href="contact.html">تواصل</a>
+        <a href="index.html" data-i18n="nav.projects">المشاريع</a>
+        <a href="architecture.html" data-i18n="nav.architecture">العمارة</a>
+        <a href="founder.html" class="active" data-i18n="nav.founder">أحمد رضا</a>
+        <a href="contact.html" data-i18n="nav.contact">تواصل</a>
       </nav>
+            <button type="button" class="lang-toggle" data-lang-next="en" aria-label="Switch language">English</button>
+
     </div>
   </header>
 
   <section class="page-hero">
     <div class="container">
-      <h1>منشئ الموقع</h1>
-      <p class="meta">المهندس أحمد رضا · DEZN</p>
+      <h1 data-i18n="founder.hero">منشئ الموقع</h1>
+      <p class="meta" data-i18n="founder.meta">المهندس أحمد رضا · DEZN</p>
     </div>
   </section>
 
   <div class="founder-wrap">
     <div class="founder-photo">
-      <img src="./ahmed-reda.jpg" alt="المهندس أحمد رضا">
+      <img src="./ahmed-reda.jpg" alt="Eng. Ahmed Reda" data-i18n-alt="founder.meta">
     </div>
     <div class="founder-info">
-      <h2>م. أحمد رضا</h2>
-      <p class="founder-role">مصمم معماري · مؤسس DEZN</p>
+      <h2 data-i18n="founder.name">م. أحمد رضا</h2>
+      <p class="founder-role" data-i18n="founder.role">مصمم معماري · مؤسس DEZN</p>
       <div class="project-body">
-        <p>
-          مهندس معماري ومؤسس منصة <strong>DEZN</strong> — مساحة لعرض المشاريع المعمارية والتصميم الداخلي والتصور البصري.
+        <p data-i18n="founder.p1">
+          مهندس معماري ومؤسس منصة DEZN — مساحة لعرض المشاريع المعمارية والتصميم الداخلي والتصور البصري.
         </p>
-        <p>
-          يهتم بالتصميم السكني والتجاري، والحلول الوظيفية مع الحفاظ على الجمال والاستدامة،
-          ويعمل بأدوات مثل AutoCAD و Revit و 3ds Max ضمن مسار من الفكرة إلى التقديم.
+        <p data-i18n="founder.p2">
+          يهتم بالتصميم السكني والتجاري، والحلول الوظيفية مع الحفاظ على الجمال والاستدامة، ويعمل بأدوات مثل AutoCAD و Revit و 3ds Max ضمن مسار من الفكرة إلى التقديم.
         </p>
-        <p>
+        <p data-i18n="founder.p3">
           الموقع ده اتعمل كبورتفوليو ومنصة تواصل مع العملاء المهتمين بمشاريع معمارية وتصميم داخلي.
         </p>
       </div>
       <div class="founder-contacts">
         <a href="https://wa.me/201042902259" target="_blank" rel="noopener">WhatsApp</a>
-        <a href="https://whatsapp.com/channel/0029Vb6xOMBAojYyRbdHNI2I" target="_blank" rel="noopener">قناة واتساب</a>
+        <a href="https://whatsapp.com/channel/0029Vb6xOMBAojYyRbdHNI2I" target="_blank" rel="noopener" data-i18n="contact.channel">قناة واتساب</a>
         <a href="mailto:dezncore@gmail.com">Gmail</a>
         <a href="https://www.facebook.com/Dezn1/" target="_blank" rel="noopener">Facebook</a>
         <a href="https://www.instagram.com/dezncore/" target="_blank" rel="noopener">Instagram</a>
@@ -73,9 +75,23 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-logo"><div class="logo-box small">DE<br>ZN</div></div>
-      <p>© 2026 DEZN. جميع الحقوق محفوظة.</p>
+      <p><span data-i18n="footer">© 2026 DEZN. جميع الحقوق محفوظة.</span></p>
     </div>
   </footer>
+  <script>
+  window.addEventListener('dezn-lang', function (e) {
+    var lang = e.detail && e.detail.lang;
+    var name = (window.DEZN_I18N && window.DEZN_I18N.t('founder.name')) || 'م. أحمد رضا';
+    document.title = name + ' | DEZN';
+    var img = document.querySelector('.founder-photo img');
+    if (img && window.DEZN_I18N) img.alt = window.DEZN_I18N.t('founder.meta');
+  });
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window.DEZN_I18N) {
+      document.title = window.DEZN_I18N.t('founder.name') + ' | DEZN';
+    }
+  });
+</script>
   <script src="./script.js"></script>
 </body>
 </html>

@@ -1,53 +1,75 @@
-// ===== Global site search data =====
+// ===== Global site search data (AR + EN) =====
 const SITE_SEARCH = [
   // Projects
-  { type: 'مشروع', title: 'فيلا سكنية حديثة', tags: 'فيلا سكنية منزل residential', url: 'project.html?id=villa' },
-  { type: 'مشروع', title: 'مجمع سكني فاخر', tags: 'مجمع سكني شقق multi-family', url: 'project.html?id=complex' },
-  { type: 'مشروع', title: 'تصميم داخلي - شقة', tags: 'تصميم داخلي شقة interior', url: 'project.html?id=apartment' },
-  { type: 'مشروع', title: 'مبنى إداري حديث', tags: 'مبنى إداري مكتب commercial', url: 'project.html?id=office' },
-  { type: 'مشروع', title: 'مركز ثقافي ومتحف', tags: 'مركز ثقافي متحف public', url: 'project.html?id=museum' },
-  { type: 'مشروع', title: 'منتجع سياحي', tags: 'منتجع سياحي landscape hospitality', url: 'project.html?id=resort' },
-  { type: 'مشروع', title: 'بيت صيفي على البحر', tags: 'بيت صيفي بحر residential', url: 'project.html?id=beach' },
-  { type: 'مشروع', title: 'مركز تسوق حديث', tags: 'مول تجاري retail commercial', url: 'project.html?id=mall' },
-  { type: 'مشروع', title: 'تصميم مكتب حديث', tags: 'مكتب تصميم workspace interior', url: 'project.html?id=workspace' },
+  { typeKey: 'project', titleAr: 'فيلا سكنية حديثة', titleEn: 'Modern Residential Villa', tags: 'فيلا سكنية منزل residential villa modern', url: 'project.html?id=villa' },
+  { typeKey: 'project', titleAr: 'مجمع سكني فاخر', titleEn: 'Luxury Residential Complex', tags: 'مجمع سكني شقق multi-family complex luxury', url: 'project.html?id=complex' },
+  { typeKey: 'project', titleAr: 'تصميم داخلي - شقة', titleEn: 'Interior Design — Apartment', tags: 'تصميم داخلي شقة interior apartment', url: 'project.html?id=apartment' },
+  { typeKey: 'project', titleAr: 'مبنى إداري حديث', titleEn: 'Modern Office Building', tags: 'مبنى إداري مكتب commercial office building', url: 'project.html?id=office' },
+  { typeKey: 'project', titleAr: 'مركز ثقافي ومتحف', titleEn: 'Cultural Center & Museum', tags: 'مركز ثقافي متحف public museum cultural', url: 'project.html?id=museum' },
+  { typeKey: 'project', titleAr: 'منتجع سياحي', titleEn: 'Tourist Resort', tags: 'منتجع سياحي landscape hospitality resort', url: 'project.html?id=resort' },
+  { typeKey: 'project', titleAr: 'بيت صيفي على البحر', titleEn: 'Seaside Summer House', tags: 'بيت صيفي بحر residential beach summer house coastal', url: 'project.html?id=beach' },
+  { typeKey: 'project', titleAr: 'مركز تسوق حديث', titleEn: 'Modern Shopping Center', tags: 'مول تجاري retail commercial mall shopping', url: 'project.html?id=mall' },
+  { typeKey: 'project', titleAr: 'تصميم مكتب حديث', titleEn: 'Modern Office Interior', tags: 'مكتب تصميم workspace interior office', url: 'project.html?id=workspace' },
   // Architects
-  { type: 'معماري', title: 'أنطوني غاودي', tags: 'غاودي gaudi ساغرادا برشلونة', url: 'architect.html?id=gaudi' },
-  { type: 'معماري', title: 'لو كوربوزييه', tags: 'كوربوزييه corbusier حداثة', url: 'architect.html?id=corbusier' },
-  { type: 'معماري', title: 'فرانك لويد رايت', tags: 'رايت wright شلال fallingwater', url: 'architect.html?id=wright' },
-  { type: 'معماري', title: 'زها حديد', tags: 'زها حديد hadid', url: 'architect.html?id=hadid' },
-  { type: 'معماري', title: 'حسن فتحي', tags: 'حسن فتحي fathy قرنة طوب', url: 'architect.html?id=fathy' },
-  { type: 'معماري', title: 'جيل معاصر · العالم العربي', tags: 'طلال العيسوي معاصر عربي', url: 'architect.html?id=contemporary' },
+  { typeKey: 'architect', titleAr: 'أنطوني غاودي', titleEn: 'Antoni Gaudí', tags: 'غاودي gaudi ساغرادا برشلونة barcelona', url: 'architect.html?id=gaudi' },
+  { typeKey: 'architect', titleAr: 'لو كوربوزييه', titleEn: 'Le Corbusier', tags: 'كوربوزييه corbusier حداثة modernism', url: 'architect.html?id=corbusier' },
+  { typeKey: 'architect', titleAr: 'فرانك لويد رايت', titleEn: 'Frank Lloyd Wright', tags: 'رايت wright شلال fallingwater', url: 'architect.html?id=wright' },
+  { typeKey: 'architect', titleAr: 'زها حديد', titleEn: 'Zaha Hadid', tags: 'زها حديد hadid zaha', url: 'architect.html?id=hadid' },
+  { typeKey: 'architect', titleAr: 'حسن فتحي', titleEn: 'Hassan Fathy', tags: 'حسن فتحي fathy قرنة طوب gourna', url: 'architect.html?id=fathy' },
+  { typeKey: 'architect', titleAr: 'جيل معاصر · العالم العربي', titleEn: 'Contemporary generation', tags: 'طلال العيسوي معاصر عربي contemporary arab', url: 'architect.html?id=contemporary' },
   // Services
-  { type: 'خدمة', title: 'تصميم معماري', tags: 'تصميم معماري مخططات architecture', url: 'service.html?id=architecture' },
-  { type: 'خدمة', title: 'تصميم داخلي', tags: 'تصميم داخلي interior أثاث', url: 'service.html?id=interior' },
-  { type: 'خدمة', title: 'تصور ثلاثي الأبعاد', tags: 'رندر تصور 3d visualization', url: 'service.html?id=visualization' },
+  { typeKey: 'service', titleAr: 'تصميم معماري', titleEn: 'Architectural Design', tags: 'تصميم معماري مخططات architecture design', url: 'service.html?id=architecture' },
+  { typeKey: 'service', titleAr: 'تصميم داخلي', titleEn: 'Interior Design', tags: 'تصميم داخلي interior أثاث furniture', url: 'service.html?id=interior' },
+  { typeKey: 'service', titleAr: 'تصور ثلاثي الأبعاد', titleEn: '3D Visualization', tags: 'رندر تصور 3d visualization render', url: 'service.html?id=visualization' },
   // Pages
-  { type: 'صفحة', title: 'تاريخ العمارة', tags: 'عمارة تاريخ architecture', url: 'architecture.html' },
-  { type: 'صفحة', title: 'المهندس أحمد رضا', tags: 'أحمد رضا مؤسس founder', url: 'founder.html' },
-  { type: 'صفحة', title: 'تواصل معنا', tags: 'تواصل واتساب contact', url: 'contact.html' },
-
+  { typeKey: 'page', titleAr: 'تاريخ العمارة', titleEn: 'Architecture history', tags: 'عمارة تاريخ architecture history', url: 'architecture.html' },
+  { typeKey: 'page', titleAr: 'المهندس أحمد رضا', titleEn: 'Eng. Ahmed Reda', tags: 'أحمد رضا مؤسس founder ahmed reda', url: 'founder.html' },
+  { typeKey: 'page', titleAr: 'تواصل معنا', titleEn: 'Contact us', tags: 'تواصل واتساب contact whatsapp', url: 'contact.html' },
+  { typeKey: 'page', titleAr: 'كل المشاريع', titleEn: 'All projects', tags: 'مشاريع portfolio projects', url: 'index.html' },
   // Famous works
-  { type: 'عمل', title: 'ساغرادا فاميليا', tags: 'غاودي gaudi sagrada برشلونة', url: 'work.html?id=gaudi-sagrada' },
-  { type: 'عمل', title: 'حديقة غويل', tags: 'غاودي park guell', url: 'work.html?id=gaudi-guell' },
-  { type: 'عمل', title: 'فيلا سافوي', tags: 'كوربوزييه savoye', url: 'work.html?id=corbusier-savoye' },
-  { type: 'عمل', title: 'منزل الشلال', tags: 'رايت fallingwater شلال', url: 'work.html?id=wright-fallingwater' },
-  { type: 'عمل', title: 'متحف غوغنهايم', tags: 'رايت guggenheim', url: 'work.html?id=wright-guggenheim' },
-  { type: 'عمل', title: 'مركز حيدر علييف', tags: 'زها حديد باكو', url: 'work.html?id=hadid-aliyev' },
-  { type: 'عمل', title: 'قرية القرنة الجديدة', tags: 'حسن فتحي gourna', url: 'work.html?id=fathy-gourna' },
-  { type: 'صفحة', title: 'كل المشاريع', tags: 'مشاريع portfolio', url: 'index.html' }
+  { typeKey: 'work', titleAr: 'ساغرادا فاميليا', titleEn: 'Sagrada Família', tags: 'غاودي gaudi sagrada برشلونة barcelona', url: 'work.html?id=gaudi-sagrada' },
+  { typeKey: 'work', titleAr: 'حديقة غويل', titleEn: 'Park Güell', tags: 'غاودي park guell', url: 'work.html?id=gaudi-guell' },
+  { typeKey: 'work', titleAr: 'كاسا باتيو', titleEn: 'Casa Batlló', tags: 'غاودي batllo casa', url: 'work.html?id=gaudi-batllo' },
+  { typeKey: 'work', titleAr: 'كاسا ميلا', titleEn: 'Casa Milà', tags: 'غاودي mila pedrera', url: 'work.html?id=gaudi-mila' },
+  { typeKey: 'work', titleAr: 'فيلا سافوي', titleEn: 'Villa Savoye', tags: 'كوربوزييه savoye villa', url: 'work.html?id=corbusier-savoye' },
+  { typeKey: 'work', titleAr: 'وحدة السكن مارسيليا', titleEn: 'Unité d\'Habitation', tags: 'كوربوزييه unite marseille', url: 'work.html?id=corbusier-unite' },
+  { typeKey: 'work', titleAr: 'منزل الشلال', titleEn: 'Fallingwater', tags: 'رايت fallingwater شلال wright', url: 'work.html?id=wright-fallingwater' },
+  { typeKey: 'work', titleAr: 'متحف غوغنهايم', titleEn: 'Guggenheim Museum', tags: 'رايت guggenheim museum', url: 'work.html?id=wright-guggenheim' },
+  { typeKey: 'work', titleAr: 'مركز حيدر علييف', titleEn: 'Heydar Aliyev Center', tags: 'زها حديد باكو hadid aliyev baku', url: 'work.html?id=hadid-aliyev' },
+  { typeKey: 'work', titleAr: 'متحف MAXXI', titleEn: 'MAXXI Museum', tags: 'زها حديد maxxi rome', url: 'work.html?id=hadid-maxxi' },
+  { typeKey: 'work', titleAr: 'قرية القرنة الجديدة', titleEn: 'New Gourna Village', tags: 'حسن فتحي gourna fathy', url: 'work.html?id=fathy-gourna' }
 ];
+
+const TYPE_LABELS = {
+  ar: { project: 'مشروع', architect: 'معماري', service: 'خدمة', page: 'صفحة', work: 'عمل' },
+  en: { project: 'Project', architect: 'Architect', service: 'Service', page: 'Page', work: 'Work' }
+};
+
+function searchLang() {
+  return (window.DEZN_I18N && window.DEZN_I18N.getLang()) || 'ar';
+}
+
+function itemTitle(item) {
+  return searchLang() === 'en' ? (item.titleEn || item.titleAr) : (item.titleAr || item.title);
+}
+
+function itemType(item) {
+  const lang = searchLang();
+  const map = TYPE_LABELS[lang] || TYPE_LABELS.ar;
+  return map[item.typeKey] || item.type || '';
+}
 
 // For suggestions grid on index
 const allProjects = [
-  { id: "villa", title: "فيلا سكنية حديثة", category: "residential", img: "https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=400&h=400&fit=crop" },
-  { id: "complex", title: "مجمع سكني فاخر", category: "residential", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=400&fit=crop" },
-  { id: "apartment", title: "تصميم داخلي - شقة", category: "interior", img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=400&fit=crop" },
-  { id: "office", title: "مبنى إداري حديث", category: "commercial", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=400&fit=crop" },
-  { id: "museum", title: "مركز ثقافي ومتحف", category: "public", img: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&h=400&fit=crop" },
-  { id: "resort", title: "منتجع سياحي", category: "landscape", img: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400&h=400&fit=crop" },
-  { id: "beach", title: "بيت صيفي على البحر", category: "residential", img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=400&fit=crop" },
-  { id: "mall", title: "مركز تسوق حديث", category: "commercial", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=400&fit=crop" },
-  { id: "workspace", title: "تصميم مكتب حديث", category: "interior", img: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=400&h=400&fit=crop" }
+  { id: "villa", title: "فيلا سكنية حديثة", titleEn: "Modern Residential Villa", category: "residential", img: "https://images.unsplash.com/photo-1487958449943-2429e8be8624?w=400&h=400&fit=crop" },
+  { id: "complex", title: "مجمع سكني فاخر", titleEn: "Luxury Residential Complex", category: "residential", img: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=400&fit=crop" },
+  { id: "apartment", title: "تصميم داخلي - شقة", titleEn: "Interior Design — Apartment", category: "interior", img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=400&h=400&fit=crop" },
+  { id: "office", title: "مبنى إداري حديث", titleEn: "Modern Office Building", category: "commercial", img: "https://images.unsplash.com/photo-1497366216548-37526070297c?w=400&h=400&fit=crop" },
+  { id: "museum", title: "مركز ثقافي ومتحف", titleEn: "Cultural Center & Museum", category: "public", img: "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=400&h=400&fit=crop" },
+  { id: "resort", title: "منتجع سياحي", titleEn: "Tourist Resort", category: "landscape", img: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=400&h=400&fit=crop" },
+  { id: "beach", title: "بيت صيفي على البحر", titleEn: "Seaside Summer House", category: "residential", img: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=400&h=400&fit=crop" },
+  { id: "mall", title: "مركز تسوق حديث", titleEn: "Modern Shopping Center", category: "commercial", img: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=400&h=400&fit=crop" },
+  { id: "workspace", title: "تصميم مكتب حديث", titleEn: "Modern Office Interior", category: "interior", img: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=400&h=400&fit=crop" }
 ];
 
 // ===== Global search UI =====
@@ -74,8 +96,14 @@ function initGlobalSearch() {
     q = (q || '').trim().toLowerCase();
     if (!q) return [];
     return SITE_SEARCH.filter(item => {
-      const hay = (item.title + ' ' + item.tags + ' ' + item.type).toLowerCase();
-      return hay.includes(q) || q.split(/\s+/).every(w => hay.includes(w));
+      const hay = (
+        (item.titleAr || '') + ' ' +
+        (item.titleEn || '') + ' ' +
+        (item.tags || '') + ' ' +
+        (item.typeKey || '') + ' ' +
+        itemType(item)
+      ).toLowerCase();
+      return hay.includes(q) || q.split(/\s+/).every(w => w && hay.includes(w));
     }).slice(0, 8);
   }
 
@@ -83,15 +111,15 @@ function initGlobalSearch() {
     if (!q || results.length === 0) {
       dropdown.classList.remove('open');
       dropdown.innerHTML = q
-        ? '<div class="search-empty">مفيش نتائج</div>'
+        ? '<div class="search-empty">' + (window.DEZN_I18N ? window.DEZN_I18N.t('search.empty') : 'مفيش نتائج') + '</div>'
         : '';
       if (q) dropdown.classList.add('open');
       return;
     }
     dropdown.innerHTML = results.map(r => `
       <a href="${r.url}" class="search-item" role="option">
-        <span class="search-item-type">${r.type}</span>
-        <span class="search-item-title">${r.title}</span>
+        <span class="search-item-type">${itemType(r)}</span>
+        <span class="search-item-title">${itemTitle(r)}</span>
       </a>
     `).join('');
     dropdown.classList.add('open');
@@ -162,9 +190,13 @@ function applyFilters() {
     const title = card.querySelector('h3') ? card.querySelector('h3').textContent.toLowerCase() : '';
 
     const matchCategory = currentFilter === 'all' || category === currentFilter;
+    const enTitle = (window.DEZN_I18N && card.querySelector('[data-i18n-p]'))
+      ? (window.DEZN_I18N.t('p.' + card.querySelector('[data-i18n-p]').getAttribute('data-i18n-p')) || '').toLowerCase()
+      : '';
     const matchSearch = currentSearch === '' ||
                         title.includes(currentSearch) ||
-                        tags.includes(currentSearch);
+                        tags.includes(currentSearch) ||
+                        enTitle.includes(currentSearch);
 
     if (matchCategory && matchSearch) {
       card.classList.remove('hidden');
@@ -175,7 +207,10 @@ function applyFilters() {
   });
 
   if (currentSearch || currentFilter !== 'all') {
-    if (resultsInfo) resultsInfo.textContent = `تم العثور على ${visibleCount} مشروع`;
+    if (resultsInfo) {
+      const tpl = window.DEZN_I18N ? window.DEZN_I18N.t('results') : 'تم العثور على {n} مشروع';
+      resultsInfo.textContent = tpl.replace('{n}', visibleCount);
+    }
   } else if (resultsInfo) {
     resultsInfo.textContent = '';
   }
@@ -229,12 +264,14 @@ function updateSuggestions() {
     suggested = suggested.slice(0, 4);
   }
 
-  suggestionsGrid.innerHTML = suggested.map(p => `
-    <a href="project.html?id=${p.id || 'villa'}" class="suggestion-card">
-      <img src="${p.img}" alt="${p.title}" loading="lazy">
-      <p>${p.title}</p>
-    </a>
-  `).join('');
+  const lang = searchLang();
+  suggestionsGrid.innerHTML = suggested.map(p => {
+    const title = lang === 'en' && p.titleEn ? p.titleEn : p.title;
+    return `<a href="project.html?id=${p.id || 'villa'}" class="suggestion-card">
+      <img src="${p.img}" alt="${title}" loading="lazy">
+      <p>${title}</p>
+    </a>`;
+  }).join('');
 }
 
 // ===== Smooth scroll =====
@@ -262,4 +299,10 @@ document.addEventListener('DOMContentLoaded', () => {
       card.style.transform = 'translateY(0)';
     }, 80);
   });
+});
+
+
+window.addEventListener('dezn-lang', () => {
+  if (typeof updateSuggestions === 'function') updateSuggestions();
+  if (typeof applyFilters === 'function') applyFilters();
 });

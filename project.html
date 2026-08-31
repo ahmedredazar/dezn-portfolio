@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>مشروع | DEZN</title>
   <link rel="stylesheet" href="./style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="./i18n.js"></script>
 </head>
 <body>
   <header class="header">
@@ -15,8 +16,8 @@
         <span class="logo-text">DEZN</span>
       </a>
                   <div class="search-box">
-        <input type="text" id="searchInput" placeholder="ابحث في الموقع..." autocomplete="off">
-        <button id="searchBtn" aria-label="بحث" type="button">
+        <input type="text" id="searchInput" placeholder="ابحث في الموقع..." data-i18n-placeholder="search.placeholder" autocomplete="off">
+        <button id="searchBtn" aria-label="بحث" data-i18n-aria="search.aria" type="button">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"></circle>
             <path d="m21 21-4.35-4.35"></path>
@@ -24,18 +25,20 @@
         </button>
       </div>
 <nav class="nav">
-        <a href="index.html" class="active">المشاريع</a>
-        <a href="architecture.html">العمارة</a>
-        <a href="founder.html">أحمد رضا</a>
-        <a href="contact.html">تواصل</a>
+        <a href="index.html" class="active" data-i18n="nav.projects">المشاريع</a>
+        <a href="architecture.html" data-i18n="nav.architecture">العمارة</a>
+        <a href="founder.html" data-i18n="nav.founder">أحمد رضا</a>
+        <a href="contact.html" data-i18n="nav.contact">تواصل</a>
       </nav>
+            <button type="button" class="lang-toggle" data-lang-next="en" aria-label="Switch language">English</button>
+
     </div>
   </header>
 
   <section class="page-hero">
     <div class="container">
       <div class="breadcrumb">
-        <a href="index.html">المشاريع</a>
+        <a href="index.html" data-i18n="nav.projects">المشاريع</a>
         <span>/</span>
         <span id="bcCat">—</span>
         <span>/</span>
@@ -58,7 +61,7 @@
 
   <section class="related">
     <div class="container">
-      <h2>مشاريع مشابهة</h2>
+      <h2 data-i18n="related">مشاريع مشابهة</h2>
       <div class="related-grid" id="related"></div>
     </div>
   </section>
@@ -66,7 +69,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-logo"><div class="logo-box small">DE<br>ZN</div></div>
-      <p>© 2026 DEZN. جميع الحقوق محفوظة.</p>
+      <p><span data-i18n="footer">© 2026 DEZN. جميع الحقوق محفوظة.</span></p>
     </div>
   </footer>
 
@@ -214,43 +217,118 @@
     }
   };
 
+
+  const PROJECTS_EN = {
+    villa: {
+      title: 'Modern Residential Villa',
+      catLabel: 'Residential',
+      meta: 'Residential Architecture · 2025 · 450 m²',
+      specs: [['Area','450 m²'],['Year','2025'],['Type','Detached villa'],['Location','Cairo'],['Status','Design']],
+      body: `<p>A 450 m² detached residential villa designed for a contemporary family, with a focus on natural light and open spaces.</p><p>Clean lines, natural materials such as stone, exposed concrete, and large glass. The south facade maximizes winter sun and limits summer heat.</p><p><strong>Program:</strong></p><ul><li>Ground: open living + kitchen + guest room + bath</li><li>First: 3 bedrooms + 2 baths + terrace</li><li>Roof: outdoor seating with views</li></ul><p>Tools: AutoCAD · Revit · 3ds Max</p>`
+    },
+    complex: {
+      title: 'Luxury Residential Complex',
+      catLabel: 'Residential',
+      meta: 'Multi-family · 2024',
+      specs: [['Area','12,000 m²'],['Year','2024'],['Type','Residential complex'],['Units','48'],['Location','Cairo']],
+      body: `<p>A residential complex organized around shared green courtyards. Each unit keeps privacy while common spaces build community.</p>`
+    },
+    apartment: {
+      title: 'Interior Design — Apartment',
+      catLabel: 'Interior',
+      meta: 'Interior Design · 2025',
+      specs: [['Area','180 m²'],['Year','2025'],['Type','Interior'],['Rooms','3+1']],
+      body: `<p>A calm interior for a family apartment: natural materials, soft lighting, and simple furniture layout.</p>`
+    },
+    office: {
+      title: 'Modern Office Building',
+      catLabel: 'Commercial',
+      meta: 'Commercial · 2024',
+      specs: [['Area','8,500 m²'],['Year','2024'],['Type','Offices'],['Floors','12']],
+      body: `<p>An office building with a glass facade and flexible floors for changing teams, focusing on daylight, ventilation, and clear circulation.</p>`
+    },
+    museum: {
+      title: 'Cultural Center & Museum',
+      catLabel: 'Public / Cultural',
+      meta: 'Cultural · 2023',
+      specs: [['Area','6,000 m²'],['Year','2023'],['Type','Cultural'],['Location','Cairo']],
+      body: `<p>A cultural center and museum with a sculptural mass and open entrance. The interior path links galleries to rest areas and outdoor views.</p>`
+    },
+    resort: {
+      title: 'Tourist Resort',
+      catLabel: 'Resorts',
+      meta: 'Hospitality · 2024',
+      specs: [['Area','25,000 m²'],['Year','2024'],['Type','Resort'],['Units','80']],
+      body: `<p>A tourist resort with open spaces, views, and full services. Planning separates guest flow from services while keeping a clear visual identity.</p>`
+    },
+    beach: {
+      title: 'Seaside Summer House',
+      catLabel: 'Residential',
+      meta: 'Coastal Residential · 2024',
+      specs: [['Area','320 m²'],['Year','2024'],['Type','Summer house'],['Location','Coast']],
+      body: `<p>A summer house open to the sea with shaded terraces and coastal-appropriate materials.</p>`
+    },
+    mall: {
+      title: 'Modern Shopping Center',
+      catLabel: 'Commercial',
+      meta: 'Retail · 2024',
+      specs: [['Area','18,000 m²'],['Year','2024'],['Type','Retail'],['Axes','3']],
+      body: `<p>A shopping center with a clear urban facade and smooth paths between shops and public spaces.</p>`
+    },
+    workspace: {
+      title: 'Modern Office Interior',
+      catLabel: 'Interior',
+      meta: 'Workspace · 2025',
+      specs: [['Area','450 m²'],['Year','2025'],['Type','Office'],['Stations','40']],
+      body: `<p>A flexible workspace with natural light, open planning, and quiet meeting zones.</p>`
+    }
+  };
+
+  function renderProject() {
+    const lang = (window.DEZN_I18N && window.DEZN_I18N.getLang()) || 'ar';
+    const base = PROJECTS[id] || PROJECTS.villa;
+    const en = PROJECTS_EN[id] || PROJECTS_EN.villa;
+    const p = lang === 'en' ? Object.assign({}, base, en) : base;
+
+    document.title = p.title + ' | DEZN';
+    document.getElementById('title').textContent = p.title;
+    document.getElementById('bcTitle').textContent = p.title;
+    document.getElementById('bcCat').textContent = p.catLabel;
+    document.getElementById('meta').textContent = p.meta;
+    document.getElementById('mainImg').src = p.imgs[0];
+    document.getElementById('mainImg').alt = p.title;
+    document.getElementById('body').innerHTML = p.body;
+    document.getElementById('specs').innerHTML = p.specs.map(([k,v]) =>
+      `<div class="spec-item"><strong>${k}</strong><span>${v}</span></div>`
+    ).join('');
+    const gal = document.getElementById('gallery');
+    gal.innerHTML = p.imgs.slice(1).map(src =>
+      `<img src="${src}" alt="" loading="lazy" data-full="${src}">`
+    ).join('');
+    gal.querySelectorAll('img').forEach(img => {
+      img.onclick = () => openLb(img.dataset.full || img.src);
+    });
+    document.getElementById('mainImg').onclick = () => openLb(p.imgs[0]);
+
+    // Related titles
+    const related = Object.entries(PROJECTS)
+      .filter(([k, v]) => k !== id && v.category === base.category)
+      .slice(0, 3);
+    const more = related.length < 3
+      ? Object.entries(PROJECTS).filter(([k]) => k !== id && !related.find(r => r[0] === k)).slice(0, 3 - related.length)
+      : [];
+    const allRel = [...related, ...more].slice(0, 4);
+    document.getElementById('related').innerHTML = allRel.map(([k, v]) => {
+      const thumb = v.imgs[0].replace(/w=\d+/, 'w=400').replace(/h=\d+/, 'h=400');
+      const title = lang === 'en' && PROJECTS_EN[k] ? PROJECTS_EN[k].title : v.title;
+      return `<a href="project.html?id=${k}" class="suggestion-card">
+        <img src="${thumb}" alt="${title}" loading="lazy">
+        <p>${title}</p>
+      </a>`;
+    }).join('');
+  }
+
   const id = new URLSearchParams(location.search).get('id') || 'villa';
-  const p = PROJECTS[id] || PROJECTS.villa;
-
-  document.title = p.title + ' | DEZN';
-  document.getElementById('title').textContent = p.title;
-  document.getElementById('bcTitle').textContent = p.title;
-  document.getElementById('bcCat').textContent = p.catLabel;
-  document.getElementById('meta').textContent = p.meta;
-  document.getElementById('mainImg').src = p.imgs[0];
-  document.getElementById('mainImg').alt = p.title;
-  document.getElementById('body').innerHTML = p.body;
-
-  document.getElementById('specs').innerHTML = p.specs.map(([k,v]) =>
-    `<div class="spec-item"><strong>${k}</strong><span>${v}</span></div>`
-  ).join('');
-
-  const gal = document.getElementById('gallery');
-  gal.innerHTML = p.imgs.slice(1).map(src =>
-    `<img src="${src}" alt="" loading="lazy" data-full="${src}">`
-  ).join('');
-
-  // Related
-  const related = Object.entries(PROJECTS)
-    .filter(([k, v]) => k !== id && v.category === p.category)
-    .slice(0, 3);
-  const more = related.length < 3
-    ? Object.entries(PROJECTS).filter(([k]) => k !== id && !related.find(r => r[0] === k)).slice(0, 3 - related.length)
-    : [];
-  const allRel = [...related, ...more].slice(0, 4);
-  document.getElementById('related').innerHTML = allRel.map(([k, v]) => {
-    const thumb = v.imgs[0].replace(/w=\d+/, 'w=400').replace(/h=\d+/, 'h=400');
-    return `<a href="project.html?id=${k}" class="suggestion-card">
-      <img src="${thumb}" alt="${v.title}" loading="lazy">
-      <p>${v.title}</p>
-    </a>`;
-  }).join('');
-
   // Lightbox
   const lb = document.getElementById('lightbox');
   function openLb(src) {
@@ -262,13 +340,13 @@
     lb.classList.remove('open');
     document.body.style.overflow = '';
   }
-  document.getElementById('mainImg').onclick = () => openLb(p.imgs[0]);
-  gal.querySelectorAll('img').forEach(img => {
-    img.onclick = () => openLb(img.dataset.full || img.src);
-  });
   document.getElementById('lbClose').onclick = closeLb;
   lb.onclick = e => { if (e.target === lb) closeLb(); };
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
+  renderProject();
+  window.addEventListener('dezn-lang', renderProject);
+
   </script>
   <script src="./script.js"></script>
 </body>

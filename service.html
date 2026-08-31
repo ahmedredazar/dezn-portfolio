@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>خدمة | DEZN</title>
   <link rel="stylesheet" href="./style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="./i18n.js"></script>
 </head>
 <body>
   <header class="header">
@@ -15,8 +16,8 @@
         <span class="logo-text">DEZN</span>
       </a>
             <div class="search-box">
-        <input type="text" id="searchInput" placeholder="ابحث في الموقع..." autocomplete="off">
-        <button id="searchBtn" aria-label="بحث" type="button">
+        <input type="text" id="searchInput" placeholder="ابحث في الموقع..." data-i18n-placeholder="search.placeholder" autocomplete="off">
+        <button id="searchBtn" aria-label="بحث" data-i18n-aria="search.aria" type="button">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"></circle>
             <path d="m21 21-4.35-4.35"></path>
@@ -24,11 +25,13 @@
         </button>
       </div>
 <nav class="nav">
-        <a href="index.html" class="active">المشاريع</a>
-        <a href="architecture.html">العمارة</a>
-        <a href="founder.html">أحمد رضا</a>
-        <a href="contact.html">تواصل</a>
+        <a href="index.html" class="active" data-i18n="nav.projects">المشاريع</a>
+        <a href="architecture.html" data-i18n="nav.architecture">العمارة</a>
+        <a href="founder.html" data-i18n="nav.founder">أحمد رضا</a>
+        <a href="contact.html" data-i18n="nav.contact">تواصل</a>
       </nav>
+            <button type="button" class="lang-toggle" data-lang-next="en" aria-label="Switch language">English</button>
+
     </div>
   </header>
 
@@ -52,16 +55,16 @@
     <div class="specs" id="specs" style="margin-top:32px"></div>
 
     <p style="text-align:center;margin-top:40px">
-      <a href="index.html#services" class="back-link">← العودة للخدمات</a>
+      <a href="index.html#services" class="back-link"><span data-i18n="back.services">← العودة للخدمات</span></a>
       &nbsp;·&nbsp;
-      <a href="contact.html" class="back-link">اطلب الخدمة</a>
+      <a href="contact.html" class="back-link"><span data-i18n="back.request">اطلب الخدمة</span></a>
     </p>
   </div>
 
   <footer class="footer">
     <div class="container">
       <div class="footer-logo"><div class="logo-box small">DE<br>ZN</div></div>
-      <p>© 2026 DEZN. جميع الحقوق محفوظة.</p>
+      <p><span data-i18n="footer">© 2026 DEZN. جميع الحقوق محفوظة.</span></p>
     </div>
   </footer>
 
@@ -135,17 +138,45 @@
     }
   };
 
-  const id = new URLSearchParams(location.search).get('id') || 'architecture';
-  const s = SERVICES[id] || SERVICES.architecture;
 
-  document.title = s.title + ' | DEZN';
-  document.getElementById('title').textContent = s.title;
-  document.getElementById('bcTitle').textContent = s.title;
-  document.getElementById('meta').textContent = s.meta;
-  document.getElementById('body').innerHTML = s.body;
-  document.getElementById('specs').innerHTML = s.specs.map(([k,v]) =>
-    `<div class="spec-item"><strong>${k}</strong><span>${v}</span></div>`
-  ).join('');
+  const SERVICES_EN = {
+    architecture: {
+      title: 'Architectural Design',
+      meta: 'From concept to working drawings',
+      body: `<p>Full architectural design for residential, commercial, and public projects — from first concept to buildable drawings.</p><p>We focus on function, circulation, daylight, and climate, with a clear aesthetic identity.</p><p><strong>Includes:</strong></p><ul><li>Site and program study</li><li>Concept and preliminary plans</li><li>Detailed architectural drawings</li><li>Coordination with other disciplines when needed</li><li>Visual presentation to support decisions</li></ul><p>Tools: AutoCAD · Revit · SketchUp and more.</p>`,
+      specs: [['Type','Residential / Commercial / Public'],['Deliverables','Drawings + visuals'],['Tools','Revit · AutoCAD']]
+    },
+    interior: {
+      title: 'Interior Design',
+      meta: 'Spaces · materials · lighting · furniture',
+      body: `<p>Interior design that links function and beauty: layout, materials, colors, lighting, and furniture for how the client lives and uses the space.</p><p><strong>Includes:</strong></p><ul><li>Needs and lifestyle analysis</li><li>Furniture and circulation plans</li><li>Mood board</li><li>Execution details</li><li>Furniture, lighting, and 3D suggestions</li></ul>`,
+      specs: [['Type','Residential / Office'],['Deliverables','Plans + Mood Board'],['Tools','3ds Max · AutoCAD']]
+    },
+    visualization: {
+      title: '3D Visualization',
+      meta: 'High-quality architectural renders',
+      body: `<p>Renders and visuals that help clients and investors see the project before construction: realistic light, materials, and indoor/outdoor views.</p><p><strong>Includes:</strong></p><ul><li>3D modeling from drawings</li><li>High-quality exterior and interior renders</li><li>Day and night scenes</li><li>Optional short video or walkthrough</li><li>Revisions to light and materials</li></ul>`,
+      specs: [['Type','Render / Video'],['Deliverables','High-res images'],['Tools','3ds Max · V-Ray']]
+    }
+  };
+  function renderService() {
+    const lang = (window.DEZN_I18N && window.DEZN_I18N.getLang()) || 'ar';
+    const base = SERVICES[id] || SERVICES.architecture;
+    const en = SERVICES_EN[id] || SERVICES_EN.architecture;
+    const s = lang === 'en' ? Object.assign({}, base, en) : base;
+    document.title = s.title + ' | DEZN';
+    document.getElementById('title').textContent = s.title;
+    document.getElementById('bcTitle').textContent = s.title;
+    document.getElementById('meta').textContent = s.meta;
+    document.getElementById('body').innerHTML = s.body;
+    document.getElementById('specs').innerHTML = s.specs.map(([k,v]) =>
+      `<div class="spec-item"><strong>${k}</strong><span>${v}</span></div>`
+    ).join('');
+  }
+
+  const id = new URLSearchParams(location.search).get('id') || 'architecture';
+  renderService();
+  window.addEventListener('dezn-lang', renderService);
   </script>
   <script src="./script.js"></script>
 </body>

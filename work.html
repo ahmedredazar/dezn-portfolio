@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>عمل معماري | DEZN</title>
   <link rel="stylesheet" href="./style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&family=Inter:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <script src="./i18n.js"></script>
 </head>
 <body>
   <header class="header">
@@ -15,8 +16,8 @@
         <span class="logo-text">DEZN</span>
       </a>
       <div class="search-box">
-        <input type="text" id="searchInput" placeholder="ابحث في الموقع..." autocomplete="off">
-        <button id="searchBtn" aria-label="بحث" type="button">
+        <input type="text" id="searchInput" placeholder="ابحث في الموقع..." data-i18n-placeholder="search.placeholder" autocomplete="off">
+        <button id="searchBtn" aria-label="بحث" data-i18n-aria="search.aria" type="button">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <circle cx="11" cy="11" r="8"></circle>
             <path d="m21 21-4.35-4.35"></path>
@@ -24,18 +25,20 @@
         </button>
       </div>
       <nav class="nav">
-        <a href="index.html">المشاريع</a>
-        <a href="architecture.html" class="active">العمارة</a>
-        <a href="founder.html">أحمد رضا</a>
-        <a href="contact.html">تواصل</a>
+        <a href="index.html" data-i18n="nav.projects">المشاريع</a>
+        <a href="architecture.html" class="active" data-i18n="nav.architecture">العمارة</a>
+        <a href="founder.html" data-i18n="nav.founder">أحمد رضا</a>
+        <a href="contact.html" data-i18n="nav.contact">تواصل</a>
       </nav>
+            <button type="button" class="lang-toggle" data-lang-next="en" aria-label="Switch language">English</button>
+
     </div>
   </header>
 
   <section class="page-hero">
     <div class="container">
       <div class="breadcrumb">
-        <a href="architecture.html">العمارة</a>
+        <a href="architecture.html" data-i18n="nav.architecture">العمارة</a>
         <span>/</span>
         <a href="#" id="bcArch">—</a>
         <span>/</span>
@@ -55,7 +58,7 @@
 
   <div class="project-layout article-page" style="padding-top:0;padding-bottom:60px">
     <p style="text-align:center">
-      <a href="#" class="back-link" id="backArch">← العودة للمعماري</a>
+      <a href="#" class="back-link" id="backArch"><span data-i18n="back.architect">← العودة للمعماري</span></a>
       &nbsp;·&nbsp;
       <a href="architecture.html" class="back-link">تاريخ العمارة</a>
     </p>
@@ -64,7 +67,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-logo"><div class="logo-box small">DE<br>ZN</div></div>
-      <p>© 2026 DEZN. جميع الحقوق محفوظة.</p>
+      <p><span data-i18n="footer">© 2026 DEZN. جميع الحقوق محفوظة.</span></p>
     </div>
   </footer>
 
@@ -597,33 +600,114 @@
     }
   };
 
+
+  const WORK_EN = {
+    'gaudi-sagrada': { title: 'Sagrada Família', meta: 'Barcelona, Spain · 1882 – ongoing',
+      specs: [['Location','Barcelona'],['Started','1882'],['Status','Under construction'],['Type','Basilica'],['Style','Modernisme / organic']],
+      body: `<p>The Basílica de la Sagrada Família is Gaudí’s most famous work and a symbol of Barcelona. Work began in 1882; Gaudí led it from 1883 until his death in 1926, and construction continues today.</p><p>The design blends Christian symbolism with nature-inspired forms and complex geometry.</p>` },
+    'gaudi-guell': { title: 'Park Güell', meta: 'Barcelona, Spain · 1900 – 1914',
+      specs: [['Location','Barcelona'],['Years','1900–1914'],['Type','Park / planning'],['Patron','Eusebi Güell'],['Heritage','UNESCO']],
+      body: `<p>Originally planned as a luxury housing estate on a hill, later turned into a public park. Gaudí used tilted columns, trencadís mosaic, and cave-like paths.</p>` },
+    'gaudi-batllo': { title: 'Casa Batlló', meta: 'Barcelona · 1904 – 1906',
+      specs: [['Location','Passeig de Gràcia'],['Years','1904–1906'],['Type','House remodel'],['Style','Catalan Modernisme']],
+      body: `<p>A full redesign of an existing house. The facade is often read as the legend of Saint George and the dragon. Every detail follows the same organic language.</p>` },
+    'gaudi-mila': { title: 'Casa Milà (La Pedrera)', meta: 'Barcelona · 1906 – 1912',
+      specs: [['Location','Barcelona'],['Years','1906–1912'],['Type','Residential'],['Nickname','The Quarry']],
+      body: `<p>A residential building with a wavy stone facade, iron balconies, and a sculpted roof. Nicknamed La Pedrera for its quarry-like appearance.</p>` },
+    'corbusier-savoye': { title: 'Villa Savoye', meta: 'Poissy, France · 1928 – 1931',
+      specs: [['Location','Poissy near Paris'],['Years','1928–1931'],['Type','Private villa'],['Principles','Five points of architecture']],
+      body: `<p>An icon of modernism: a white house on pilotis, ribbon windows, free plan, free facade, and roof garden — a clear application of Le Corbusier’s five points.</p>` },
+    'corbusier-unite': { title: 'Unité d\'Habitation · Marseille', meta: 'Marseille, France · 1947 – 1952',
+      specs: [['Location','Marseille'],['Years','1947–1952'],['Type','Mass housing'],['Units','~337']],
+      body: `<p>A “vertical city”: a large block with apartments, an internal street of services, and roof facilities. Exposed concrete later inspired Brutalism.</p>` },
+    'corbusier-ronchamp': { title: 'Notre-Dame du Haut', meta: 'Ronchamp, France · 1950 – 1955',
+      specs: [['Location','Ronchamp'],['Years','1950–1955'],['Type','Chapel'],['Style','Expressive modern']],
+      body: `<p>A sculptural chapel with a heavy floating roof and thick walls pierced by irregular colored openings — showing modernism can also be spiritual and sensory.</p>` },
+    'corbusier-chandigarh': { title: 'Chandigarh Complex', meta: 'Chandigarh, India · 1951 – 1965',
+      specs: [['Location','Chandigarh'],['Years','1951–1965'],['Type','Capital / government'],['Elements','Assembly · Court · Secretariat']],
+      body: `<p>Planning a new capital and government buildings for post-independence India, with brise-soleil suited to the climate.</p>` },
+    'wright-fallingwater': { title: 'Fallingwater', meta: 'Pennsylvania, USA · 1935 – 1939',
+      specs: [['Location','Mill Run, PA'],['Years','1935–1939'],['Type','Private house'],['Materials','Concrete · stone · glass']],
+      body: `<p>The classic example of organic architecture: the house is built over a waterfall, with concrete terraces extending like layers over water and rock.</p>` },
+    'wright-guggenheim': { title: 'Guggenheim Museum', meta: 'New York · 1943 – 1959',
+      specs: [['Location','Fifth Avenue, NY'],['Years','1943–1959'],['Type','Museum'],['Idea','Spiral ramp']],
+      body: `<p>A spiral museum: visitors climb a continuous ramp around a central skylit void — a different experience from traditional gallery rooms.</p>` },
+    'wright-prairie': { title: 'Prairie Houses', meta: 'USA · c. 1900 – 1910',
+      specs: [['Region','Midwest'],['Period','c. 1900–1910'],['Type','Houses'],['Traits','Horizontal · broad roofs']],
+      body: `<p>A series of low horizontal houses suited to the American prairie: broad roofs, ribbon windows, and a strong link to the garden.</p>` },
+    'wright-taliesin': { title: 'Taliesin', meta: 'Wisconsin / Arizona · 1911 onward',
+      specs: [['Sites','Wisconsin · Arizona'],['Started','1911'],['Type','Home · school · studio'],['Idea','Live, work, teach']],
+      body: `<p>Wright’s personal complex: home, studio, and architecture school integrated with the hills — later Taliesin West in Arizona for winter.</p>` },
+    'hadid-aliyev': { title: 'Heydar Aliyev Center', meta: 'Baku, Azerbaijan · 2007 – 2012',
+      specs: [['Location','Baku'],['Years','2007–2012'],['Type','Cultural center'],['Trait','Continuous fluid surface']],
+      body: `<p>One of the most famous buildings of the 21st century: a continuous white surface flowing from plaza to roof without sharp corners.</p>` },
+    'hadid-aquatics': { title: 'London Aquatics Centre', meta: 'London · 2008 – 2011',
+      specs: [['Location','London'],['Years','2008–2011'],['Type','Sports venue'],['Event','Olympics 2012']],
+      body: `<p>An Olympic pool under a wave-like roof, designed for London 2012 and later adapted for public use.</p>` },
+    'hadid-maxxi': { title: 'MAXXI Museum', meta: 'Rome, Italy · 1998 – 2009',
+      specs: [['Location','Rome'],['Years','1998–2009'],['Type','Contemporary art museum'],['Idea','Interwoven paths']],
+      body: `<p>Rome’s museum of 21st-century art: interwoven paths and ramps in white concrete instead of a simple sequence of rooms.</p>` },
+    'hadid-soho': { title: 'Galaxy Soho · Beijing', meta: 'Beijing, China · 2009 – 2012',
+      specs: [['Location','Beijing'],['Years','2009–2012'],['Type','Offices & retail'],['Trait','Connected curved volumes']],
+      body: `<p>An office and retail complex of flowing curved volumes like urban sculpture in the heart of Beijing.</p>` },
+    'fathy-gourna': { title: 'New Gourna Village', meta: 'Near Luxor, Egypt · 1945 – 1948',
+      specs: [['Location','West Luxor'],['Years','1945–1948'],['Type','Village / housing'],['Material','Mud brick']],
+      body: `<p>Fathy’s best-known project: a model village in mud brick with domes and courtyards, relying on local craftsmen and climate-appropriate techniques.</p>` },
+    'fathy-book': { title: 'Architecture for the Poor (book)', meta: 'Published 1969 / English 1973',
+      specs: [['Type','Book / ideas'],['Year','1969 / 1973'],['Topic','Architecture · society · climate'],['Impact','Global']],
+      body: `<p>His famous book recounts the Gourna experience and calls for architecture that is economically, climatically, and socially appropriate.</p>` },
+    'fathy-dar': { title: 'Dar al-Islam · New Mexico', meta: 'New Mexico, USA · 1981',
+      specs: [['Location','Near Albuquerque'],['Year','1981'],['Type','Cultural complex'],['Style','Mud / domed']],
+      body: `<p>A cultural and educational complex in the United States in Fathy’s mud-and-dome language, showing his principles travel beyond Egypt.</p>` },
+    'fathy-housing': { title: 'Housing & mosque projects', meta: 'Egypt and beyond · several decades',
+      specs: [['Scope','Egypt · international'],['Types','Housing · mosques · schools'],['Principles','Ventilation · privacy · local material']],
+      body: `<p>A body of housing, mosques, and schools using natural ventilation, courtyards, privacy, and local brick or stone.</p>` },
+    'contemporary-residential': { title: 'Contemporary residential projects', meta: 'Arab world · 21st century',
+      specs: [['Type','Residential'],['Period','21st century'],['Traits','Courtyard · mashrabiya · shading']],
+      body: `<p>Villas and compounds that reinterpret the courtyard, mashrabiya, and double facade with modern materials and techniques.</p>` },
+    'contemporary-cultural': { title: 'Cultural & public buildings', meta: 'Arab region · 21st century',
+      specs: [['Type','Cultural / public'],['Examples','Museums · centers'],['Goal','Identity + flexible space']],
+      body: `<p>Museums and cultural centers that link local symbolism with flexible space and advanced structure.</p>` },
+    'contemporary-sustain': { title: 'Sustainability & climate', meta: 'Ongoing direction in the region',
+      specs: [['Focus','Energy · climate'],['Means','Shading · ventilation · local materials']],
+      body: `<p>Designs that reduce mechanical cooling through orientation, shading, natural ventilation, and climate-appropriate materials.</p>` },
+    'contemporary-hybrid': { title: 'Heritage and technology', meta: 'Contemporary practices',
+      specs: [['Tools','Modeling · render'],['Vocabulary','Facade · mashrabiya · dome']],
+      body: `<p>Digital modeling and rendering combined with Arab architectural vocabulary — neither blind copy nor total break with the past.</p>` }
+  };
+
+  function renderWork() {
+    const lang = (window.DEZN_I18N && window.DEZN_I18N.getLang()) || 'ar';
+    const base = WORKS[id] || WORKS['gaudi-sagrada'];
+    const en = WORK_EN[id];
+    const w = (lang === 'en' && en) ? Object.assign({}, base, en) : base;
+    document.title = w.title + ' | DEZN';
+    document.getElementById('title').textContent = w.title;
+    document.getElementById('bcTitle').textContent = w.title;
+    document.getElementById('meta').textContent = w.meta;
+    document.getElementById('mainImg').src = w.imgs[0];
+    document.getElementById('mainImg').alt = w.title;
+    document.getElementById('body').innerHTML = w.body;
+    const archLink = 'architect.html?id=' + w.architectId;
+    const bcArch = document.getElementById('bcArch');
+    bcArch.textContent = (lang === 'en' && window.DEZN_I18N) ? (window.DEZN_I18N.t('a.' + w.architectId) || w.architectName) : w.architectName;
+    bcArch.href = archLink;
+    document.getElementById('backArch').href = archLink + '#works';
+    document.getElementById('specs').innerHTML = w.specs.map(([k,v]) =>
+      `<div class="spec-item"><strong>${k}</strong><span>${v}</span></div>`
+    ).join('');
+    const gal = document.getElementById('gallery');
+    gal.innerHTML = w.imgs.slice(1).map(src =>
+      `<img src="${src}" alt="" loading="lazy" data-full="${src}">`
+    ).join('');
+    document.getElementById('mainImg').onclick = () => openLb(w.imgs[0]);
+    gal.querySelectorAll('img').forEach(img => {
+      img.onclick = () => openLb(img.dataset.full || img.src);
+    });
+  }
+
   const id = new URLSearchParams(location.search).get('id') || 'gaudi-sagrada';
-  const w = WORKS[id] || WORKS['gaudi-sagrada'];
 
-  document.title = w.title + ' | DEZN';
-  document.getElementById('title').textContent = w.title;
-  document.getElementById('bcTitle').textContent = w.title;
-  document.getElementById('meta').textContent = w.meta;
-  document.getElementById('mainImg').src = w.imgs[0];
-  document.getElementById('mainImg').alt = w.title;
-  document.getElementById('body').innerHTML = w.body;
-
-  const archLink = 'architect.html?id=' + w.architectId;
-  const bcArch = document.getElementById('bcArch');
-  bcArch.textContent = w.architectName;
-  bcArch.href = archLink;
-  document.getElementById('backArch').href = archLink + '#works';
-
-  document.getElementById('specs').innerHTML = w.specs.map(([k,v]) =>
-    `<div class="spec-item"><strong>${k}</strong><span>${v}</span></div>`
-  ).join('');
-
-  const gal = document.getElementById('gallery');
-  gal.innerHTML = w.imgs.slice(1).map(src =>
-    `<img src="${src}" alt="" loading="lazy" data-full="${src}">`
-  ).join('');
-
-  // Lightbox
   const lb = document.getElementById('lightbox');
   function openLb(src) {
     document.getElementById('lbImg').src = src;
@@ -634,13 +718,12 @@
     lb.classList.remove('open');
     document.body.style.overflow = '';
   }
-  document.getElementById('mainImg').onclick = () => openLb(w.imgs[0]);
-  gal.querySelectorAll('img').forEach(img => {
-    img.onclick = () => openLb(img.dataset.full || img.src);
-  });
   document.getElementById('lbClose').onclick = closeLb;
   lb.onclick = e => { if (e.target === lb) closeLb(); };
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
+  renderWork();
+  window.addEventListener('dezn-lang', renderWork);
   </script>
   <script src="./script.js"></script>
 </body>

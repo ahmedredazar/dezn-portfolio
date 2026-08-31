@@ -390,8 +390,12 @@ img { max-width: 100%; display: block; }
 
 .socials {
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 28px;
+  align-items: center;
+  gap: 12px 20px;
+  max-width: 100%;
+  padding: 0 8px;
 }
 
 .socials a {
@@ -399,6 +403,7 @@ img { max-width: 100%; display: block; }
   font-size: 0.95rem;
   transition: color 0.25s;
   border-bottom: 1px solid transparent;
+  white-space: nowrap;
 }
 
 .socials a:hover {
@@ -459,17 +464,70 @@ img { max-width: 100%; display: block; }
 @media (max-width: 1000px) {
   .projects-grid { grid-template-columns: repeat(2, 1fr); }
   .suggestions-grid { grid-template-columns: repeat(3, 1fr); }
-  .header-inner { flex-wrap: wrap; }
-  .search-box { order: 3; max-width: 100%; width: 100%; }
 }
 
 @media (max-width: 640px) {
-  .projects-grid { grid-template-columns: 1fr; }
-  .suggestions-grid { grid-template-columns: repeat(2, 1fr); }
-  .hero h1 { font-size: 2.1rem; letter-spacing: 4px; }
+  body { overflow-x: hidden; }
+
+  .container {
+    padding: 0 16px;
+    width: 100%;
+    max-width: 100%;
+  }
+
   .logo-text { display: none; }
-  .nav { gap: 14px; }
+
+  .hero { padding: 40px 0 28px; }
+  .hero h1 { font-size: 2.1rem; letter-spacing: 4px; }
+
+  .filters {
+    justify-content: center;
+    gap: 8px;
+  }
   .filter-btn { padding: 7px 14px; font-size: 0.85rem; }
+
+  .projects { padding: 10px 0 40px; }
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .project-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .project-image {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .project-info {
+    padding: 14px 16px;
+    text-align: right;
+  }
+
+  .suggestions-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+
+  .contact { padding: 50px 0; }
+  .socials {
+    gap: 10px 14px;
+    padding: 0 4px;
+  }
+  .socials a { font-size: 0.88rem; }
+
+  .about-content { padding: 0 4px; }
+  .about-content p { overflow-wrap: anywhere; word-break: break-word; }
 }
 
 /* ===== Extended pages ===== */
@@ -952,4 +1010,362 @@ img { max-width: 100%; display: block; }
 }
 @media (max-width: 700px) {
   .works-grid { grid-template-columns: 1fr; }
+}
+
+.about-links {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px 20px;
+}
+.about-links a {
+  color: #fff;
+  border-bottom: 1px solid #666;
+  font-size: 0.95rem;
+}
+.about-links a:last-child {
+  color: #888;
+  border-bottom-color: #333;
+}
+.about-links a:hover {
+  color: #fff;
+  border-bottom-color: #fff;
+}
+
+/* Language toggle — single button */
+.lang-toggle {
+  flex-shrink: 0;
+  background: #151515;
+  border: 1px solid #333;
+  color: #eee;
+  font-family: 'Source Sans 3', 'Cairo', 'Inter', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.lang-toggle:hover {
+  background: #1f1f1f;
+  border-color: #555;
+  color: #fff;
+}
+.lang-switch { display: none; }
+.lang-btn { display: none; }
+
+
+/* LTR adjustments when English */
+html[dir="ltr"] body {
+  direction: ltr;
+  text-align: left;
+}
+html[dir="ltr"] .project-info,
+html[dir="ltr"] .work-info {
+  text-align: left;
+}
+html[dir="ltr"] .breadcrumb {
+  flex-direction: row;
+}
+html[dir="ltr"] .nav {
+  direction: ltr;
+}
+html[dir="ltr"] .direct-card {
+  flex-direction: row;
+}
+html[dir="ltr"] .founder-wrap {
+  direction: ltr;
+}
+html[dir="ltr"] .search-box input {
+  border-radius: 50px 0 0 50px;
+}
+html[dir="ltr"] .search-box button {
+  border-radius: 0 50px 50px 0;
+}
+html[dir="rtl"] .search-box input {
+  border-radius: 0 50px 50px 0;
+}
+html[dir="rtl"] .search-box button {
+  border-radius: 50px 0 0 50px;
+}
+
+
+
+
+
+
+/* English typography — no awkward drops */
+html[lang="en"],
+html[lang="en"] body,
+body.lang-en {
+  font-family: 'Source Sans 3', 'Inter', system-ui, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+html[lang="en"] h1,
+html[lang="en"] h2,
+html[lang="en"] h3,
+html[lang="en"] h4,
+html[lang="en"] .logo-text,
+html[lang="en"] .hero h1,
+html[lang="en"] .page-hero h1,
+html[lang="en"] .section-title,
+html[lang="en"] .article-h,
+html[lang="en"] .about h2,
+html[lang="en"] .contact h2,
+html[lang="en"] .founder-info h2,
+html[lang="en"] .project-info h3,
+html[lang="en"] .work-info h3,
+html[lang="en"] .service-card h3,
+html[lang="en"] .arch-card h3,
+body.lang-en h1,
+body.lang-en h2,
+body.lang-en h3,
+body.lang-en .logo-text,
+body.lang-en .section-title,
+body.lang-en .article-h {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+
+html[lang="en"] .hero h1,
+html[lang="en"] .page-hero h1,
+body.lang-en .hero h1,
+body.lang-en .page-hero h1 {
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  font-size: clamp(1.85rem, 5vw, 2.5rem);
+  line-height: 1.15;
+  max-width: none;
+  padding-inline: 8px;
+}
+
+html[lang="en"] .tagline,
+html[lang="en"] .meta,
+html[lang="en"] .subtitle,
+html[lang="en"] .founder-role,
+html[lang="en"] .work-year,
+html[lang="en"] .arch-meta,
+body.lang-en .tagline,
+body.lang-en .meta,
+body.lang-en .subtitle {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+/* Keep logo box compact — no serif drop */
+html[lang="en"] .logo-box,
+body.lang-en .logo-box {
+  font-family: 'Inter', 'Source Sans 3', system-ui, sans-serif !important;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1.05;
+  font-style: normal;
+}
+
+html[lang="en"] .nav a,
+html[lang="en"] .filter-btn,
+html[lang="en"] .lang-btn,
+html[lang="en"] .search-box input,
+html[lang="en"] .search-box button,
+html[lang="en"] .btn-works,
+html[lang="en"] .btn-submit,
+html[lang="en"] .direct-label,
+html[lang="en"] .direct-value,
+html[lang="en"] .socials a,
+html[lang="en"] .footer p,
+html[lang="en"] .breadcrumb,
+html[lang="en"] .breadcrumb a,
+html[lang="en"] .back-link,
+html[lang="en"] .spec-item,
+html[lang="en"] .spec-item strong,
+html[lang="en"] .spec-item span,
+html[lang="en"] .search-item-type,
+html[lang="en"] .search-item-title,
+html[lang="en"] .search-empty,
+html[lang="en"] .results-info,
+html[lang="en"] .no-results,
+html[lang="en"] .no-results button,
+html[lang="en"] .about-links a,
+html[lang="en"] .founder-contacts a,
+html[lang="en"] .tools,
+html[lang="en"] .project-body,
+html[lang="en"] .project-body p,
+html[lang="en"] .project-body li,
+html[lang="en"] .about p,
+html[lang="en"] .founder-info p,
+html[lang="en"] .work-info p,
+html[lang="en"] .tl-item p,
+html[lang="en"] .tl-item strong,
+html[lang="en"] .arch-card p,
+html[lang="en"] .service-card p,
+html[lang="en"] .suggestion-card p,
+html[lang="en"] input,
+html[lang="en"] textarea,
+html[lang="en"] button,
+html[lang="en"] a,
+body.lang-en .nav a,
+body.lang-en .filter-btn,
+body.lang-en .search-box input,
+body.lang-en .project-body,
+body.lang-en a,
+body.lang-en button {
+  font-family: 'Source Sans 3', 'Inter', system-ui, sans-serif;
+  letter-spacing: 0.01em;
+  line-height: 1.45;
+}
+
+html[lang="en"] .project-body,
+html[lang="en"] .about p,
+html[lang="en"] .founder-info p,
+body.lang-en .project-body {
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+html[lang="en"] .hero h1,
+html[lang="en"] .page-hero h1,
+body.lang-en .hero h1,
+body.lang-en .page-hero h1 {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  letter-spacing: 0.03em;
+}
+
+/* ===== Header layout (final) ===== */
+.header-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
+}
+
+.header-inner > .logo {
+  order: 1;
+  flex: 0 0 auto;
+}
+
+.header-inner > .nav {
+  order: 2;
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px 14px;
+  min-width: 0;
+  max-width: 100%;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.header-inner > .nav::-webkit-scrollbar { display: none; }
+.header-inner > .nav a { white-space: nowrap; }
+
+.header-inner > .lang-toggle {
+  order: 3;
+  flex: 0 0 auto;
+}
+
+.header-inner > .search-box {
+  order: 4;
+  flex: 1 1 100%;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Desktop wide: search in the same row */
+@media (min-width: 901px) {
+  .header-inner {
+    flex-wrap: nowrap;
+  }
+  .header-inner > .nav {
+    flex: 0 1 auto;
+    justify-content: flex-start;
+  }
+  .header-inner > .search-box {
+    flex: 1 1 auto;
+    width: auto;
+    max-width: 360px;
+    order: 3;
+  }
+  .header-inner > .lang-toggle {
+    order: 4;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-inner > .nav {
+    gap: 10px 12px;
+  }
+  .header-inner > .nav a {
+    font-size: 0.8rem;
+  }
+  .logo-text { display: none; }
+}
+
+
+/* Keep header/footer layout stable when language switches */
+.header,
+.header-inner,
+.footer {
+  direction: rtl;
+}
+.header .nav,
+.header .search-box,
+.header .lang-toggle,
+.header .logo {
+  direction: rtl;
+}
+/* Search input text follows active language */
+html[lang="en"] .search-box input {
+  direction: ltr;
+  text-align: left;
+}
+html[lang="ar"] .search-box input {
+  direction: rtl;
+  text-align: right;
+}
+
+/* Content text direction for English — without flipping chrome */
+body.lang-en .hero,
+body.lang-en .page-hero,
+body.lang-en .project-layout,
+body.lang-en .project-body,
+body.lang-en .about,
+body.lang-en .contact,
+body.lang-en .founder-wrap,
+body.lang-en .founder-info,
+body.lang-en .article-page,
+body.lang-en .works-section,
+body.lang-en .services,
+body.lang-en .suggestions,
+body.lang-en .filters-section,
+body.lang-en .project-info,
+body.lang-en .work-info,
+body.lang-en .service-card,
+body.lang-en .arch-card {
+  direction: ltr;
+  text-align: left;
+}
+body.lang-en .filters {
+  direction: ltr;
+}
+body.lang-en .hero,
+body.lang-en .page-hero,
+body.lang-en .about,
+body.lang-en .contact,
+body.lang-en .section-title {
+  text-align: center;
+}
+body.lang-en .breadcrumb {
+  direction: ltr;
+  justify-content: flex-start;
 }
